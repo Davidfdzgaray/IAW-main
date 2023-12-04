@@ -34,7 +34,7 @@
                 $mayorf='No';
             }
 
-            echo "Nombre: " . $nombre . "<br>Mayor de edad:" . $mayorf . "<br>Mayor interés:" . $intereses . "<br>Coche preferido:" . $coches;
+            echo "Nombre: " . $nombre . "<br>Mayor de edad: " . $mayorf . "<br>Mayor interés: " . $intereses . "<br>Coche preferido: " . $coches;
         }
     ?>
 </body>
