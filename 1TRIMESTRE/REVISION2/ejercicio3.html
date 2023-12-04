@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIO 3</title>
+</head>
+<style>
+    p {
+        color: red;
+    }
+    
+    input[type=number]::-webkit-inner-spin-button, 
+    
+    input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none; 
+        margin: 0; 
+    }
+    
+    input[type=number] { -moz-appearance:textfield; }
+</style>
+<script src="ejercicio3.js"></script>
+<body>
+    <label for="nombre">Nombre</label> <input type="text" id="nombre">
+    <p id="enombre"></p>
+    <label for="apellido">Apellido</label> <input type="text" id="apellido">
+    <p id="eapellido"></p>
+    <label for="correo">Correo Electrónico</label> <input type="text" id="correo">
+    <p id="ecorreo"></p>
+    <label for="direccion">Dirección</label> <input type="text" id="direccion"><br><br>
+    <label for="ciudad">Ciudad</label> <input type="text" id="ciudad"><br><br>
+    <label for="telefono">Teléfono</label> <input type="number" id="telefono">
+    <p id="etelefono"></p>
+    <label for="dni">DNI</label> <input type="text" id="dni">
+    <p id="edni"></p>
+    <label for="pin1">PIN</label> <input type="password" id="pin1">
+    <label for="pin2">Repita el PIN</label> <input type="password" id="pin2">
+    <p id="epin"></p>
+    <button onclick="validar()">Validar</button>
+</body>
+</html>

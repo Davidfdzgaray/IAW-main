@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIO 1</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<body>
+<p id="primero">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit neque error mollitia perspiciatis beatae magni. Minima cum nostrum id possimus facilis laudantium tempore! Sint dolores, non accusantium nulla eius suscipit!</p>
+<br>
+<p id="segundo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit neque error mollitia perspiciatis beatae magni. Minima cum nostrum id possimus facilis laudantium tempore! Sint dolores, non accusantium nulla eius suscipit!</p>
+<br>
+<p id="tercero">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit neque error mollitia perspiciatis beatae magni. Minima cum nostrum id possimus facilis laudantium tempore! Sint dolores, non accusantium nulla eius suscipit!</p>
+
+<button id="esconder">ESCONDER</button>
+    <script>
+        $(document).ready(function () {
+            $('#esconder').click(function () { 
+                let numero = prompt("Dime que quieres esconder:").toLowerCase();
+
+                if (numero=='todos') {
+                    $('*').hide();
+                }
+                else {
+                    $('#'+ numero).hide();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

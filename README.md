@@ -1,0 +1,6 @@
+# REPOSITORIO IAW CURSO 23/24
+## PREPARACIÓN DEL ENTORNO DE DESARROLLO
+
+- Visual Studio Code
+- git
+- Docker

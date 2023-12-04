@@ -1,0 +1,27 @@
+{
+    "remotePath": "./",
+    "host": "access-5014808651.webspace-host.com",
+    "username": "a2470579",
+    "password": "Paisdama1",
+    "port": 3306,
+    "secure": false,
+    "protocol": "sftp",
+    "uploadOnSave": false,
+    "passive": false,
+    "debug": false,
+    "privateKeyPath": null,
+    "passphrase": null,
+    "agent": null,
+    "allow": [],
+    "ignore": [
+        "\\.vscode",
+        "\\.git",
+        "\\.DS_Store"
+    ],
+    "generatedFiles": {
+        "extensionsToInclude": [
+            ""
+        ],
+        "path": ""
+    }
+}

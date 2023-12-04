@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJ1</title>
+</head>
+<style>
+    .contenedor {
+        display: flex; /*Convertimos al menú en flexbox*/
+        justify-content: space-between; /*Con esto le indicamos que margine todos los items que se encuentra adentro hacia la derecha e izquierda*/
+        align-items: center; /*con esto alineamos de manera vertical*/
+    }
+    .contenedor2 {
+        display: flex; /*Convertimos al menú en flexbox*/
+        justify-content: space-between; /*Con esto le indicamos que margine todos los items que se encuentra adentro hacia la derecha e izquierda*/
+        align-items: center; /*con esto alineamos de manera vertical*/
+    }
+    .circulo1 {
+        background-color: red;
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+    }
+    .circulo2 {
+        background-color: green;
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+    }
+    .circulo3 {
+        background-color: blue;
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+    }
+    .boton {
+        height: 10%;
+        width: auto;
+    }
+</style>
+<body>
+    <div class="contenedor">
+        <div class="circulo1"> </div>
+        <div class="circulo2"> </div>
+        <div class="circulo3"> </div>
+    </div><br>
+    <div class="contenedor2">
+        <button class="boton" onclick="rojo()">Ocultar</button>
+        <button class="boton" onclick="verde()">Ocultar</button>
+        <button class="boton" onclick="azul()">Ocultar</button>
+    </div>
+    <script>
+        function rojo(){
+            document.querySelector(".circulo1").style.visibility = "hidden";
+        }
+        function verde(){
+            document.querySelector(".circulo2").style.visibility = "hidden";
+        }
+        function azul(){
+            document.querySelector(".circulo3").style.visibility = "hidden";
+        }
+    </script>
+</body>
+</html>
