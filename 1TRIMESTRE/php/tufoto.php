@@ -6,24 +6,17 @@
     <title>TU FOTO</title>
 </head>
 <body>
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+        Nombre: <input type="text" name="nombre"><br>
+        Foto: <input type="image" src="" alt="" name="foto"><br>
+        <input type="submit" value="Enviar" name='submit'>
+    </form>
     <?php
-        $palabras = [
-            "HOLA",
-            "HELLO",
-            "BYE",
-            "ADIOS",
-            "ROCK",
-            "ROCA",
-            "PHONE",
-            "TELEFONO",
-            "KEYBOARD",
-            "TECLADO"
-        ];
+        $nombre = htmlspecialchars($_POST['nombre']);
+        $foto = htmlspecialchars($_POST['foto']);
 
-        sort($palabras);
-
-        foreach ($palabras as $val) {
-            echo "$val <br>";
+        if(isset($_POST["submit"])) {
+            echo ;
         }
     ?>
 </body>
