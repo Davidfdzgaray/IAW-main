@@ -11,10 +11,12 @@
         Contraseña: <input type="password" name="contrasena"/><br/><br/>
         <input type="submit" name="submit" value="ACCEDER"/> 
     </form>
-    
+
     <?php
         $usuario = htmlspecialchars($_POST['usuario']);
         $contrasena = htmlspecialchars($_POST['contrasena']);
+
+        //crypt();
 
         if(isset($_POST["submit"])) {
             if ($usuario=='admin' && $contrasena=='H4CK3R4$1R') {
