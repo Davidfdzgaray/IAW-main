@@ -30,7 +30,8 @@
         if(isset($_POST["submit"])) {
             if (isset($_POST["check"])) {
                 $mayorf='Si';
-            } else {
+            } 
+            else {
                 $mayorf='No';
             }
 
