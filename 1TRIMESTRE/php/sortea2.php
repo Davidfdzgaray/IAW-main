@@ -18,7 +18,7 @@
     </form>
 
     <?php
-        if (isset($_POST['submit'])) {
+        if (isset($_POST['submit']) && $premios>=1) {
             $participantes = htmlspecialchars($_POST['participantes']);
             $premios = htmlspecialchars($_POST['premios']);
             $separador = " ";
