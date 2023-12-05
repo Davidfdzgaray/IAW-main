@@ -6,24 +6,18 @@
     <title>SORTEO</title>
 </head>
 <body>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+        Nº DE PARTICIPANTES: <input type="text" name="numero"><br><br>
+        
+        <input type="submit" value="REGISTRAR" name='submit'>
+    </form>
     <?php
-        $palabras = [
-            "HOLA",
-            "HELLO",
-            "BYE",
-            "ADIOS",
-            "ROCK",
-            "ROCA",
-            "PHONE",
-            "TELEFONO",
-            "KEYBOARD",
-            "TECLADO"
-        ];
+       if (isset($_POST['submit'])) {
+            $numero = htmlspecialchars($_POST['numero']);
+            $numero_aleatorio = rand(1,$numero);
 
-        sort($palabras);
+            echo "<br>El número ganador será " . $numero_aleatorio;
 
-        foreach ($palabras as $val) {
-            echo "$val <br>";
         }
     ?>
 </body>

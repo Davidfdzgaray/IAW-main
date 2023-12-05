@@ -6,25 +6,13 @@
     <title>SORTEA 2</title>
 </head>
 <body>
-    <?php
-        $palabras = [
-            "HOLA",
-            "HELLO",
-            "BYE",
-            "ADIOS",
-            "ROCK",
-            "ROCA",
-            "PHONE",
-            "TELEFONO",
-            "KEYBOARD",
-            "TECLADO"
-        ];
-
-        sort($palabras);
-
-        foreach ($palabras as $val) {
-            echo "$val <br>";
-        }
-    ?>
+    Escribe los participantes del sorteo:<br>
+    Lista de participantes:<br>
+    <textarea name="participantes" cols="50" rows="20"></textarea> <br>
+    Debe tener como mínimo dos participantes. <br><br>
+    Nº de premios: <br>
+    <input type="number" name="premios"><br>
+    <input type="submit" value="REGISTRAR" name='submit'>
+    <input type="submit" value="BORRAR" id='borrar'>
 </body>
 </html>
