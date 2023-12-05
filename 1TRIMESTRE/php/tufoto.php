@@ -13,13 +13,26 @@
         <input type="submit" value="Enviar" name='submit'>
     </form>
     <?php
-        $nombre = htmlspecialchars($_POST['nombre']);
-        $foto = htmlspecialchars($_POST['foto']);
-
-        if(isset($_POST["submit"])) {
-            echo $nombre . "<br><br>";
-            echo '<img src="media/'.$foto.'">';
+        if (isset($_POST['submit'])) {
+            $foto = htmlspecialchars($_POST['foto']);
+            $nombre = htmlspecialchars($_POST['nombre']);
+        
+            $nombrefoto = $_FILES["foto"]["name"];
+            $tmpfoto = $_FILES["foto"]["tmp_name"];
+        
+            if (is_uploaded_file($tmpfoto)) {
+                $rutadestino =  "media/" . $nombrefoto;
+                move_uploaded_file($tmpfoto, $rutadestino);
+        
+                echo $nombre . "<br><br>";
+                echo '<img src="' . $rutadestino . '">';
+                
+            } 
+            else {
+                echo "Error";
+            }
         }
+        
     ?>
 </body>
 </html>
