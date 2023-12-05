@@ -7,8 +7,9 @@
 </head>
 <body>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-        Nombre: <input type="text" name="nombre"><br>
-        Foto: <input type="image" src="" alt="" name="foto"><br>
+        Nombre: <input type="text" name="nombre"><br><br>
+        Foto: <input type="file" name="foto"><br><br>
+        
         <input type="submit" value="Enviar" name='submit'>
     </form>
     <?php
@@ -16,7 +17,8 @@
         $foto = htmlspecialchars($_POST['foto']);
 
         if(isset($_POST["submit"])) {
-            echo ;
+            echo $nombre . "<br><br>";
+            echo '<img src="media/'.$foto.'">';
         }
     ?>
 </body>
