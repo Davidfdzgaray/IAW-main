@@ -6,7 +6,7 @@
     <title>TU FOTO</title>
 </head>
 <body>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
         Nombre: <input type="text" name="nombre"><br><br>
         Foto: <input type="file" name="foto"><br><br>
         
@@ -24,7 +24,7 @@
                 $rutadestino =  "media/" . $nombrefoto;
                 move_uploaded_file($tmpfoto, $rutadestino);
         
-                echo $nombre . "<br><br>";
+                echo "<br>" . $nombre . "<br><br>";
                 echo '<img src="' . $rutadestino . '">';
                 
             } 
