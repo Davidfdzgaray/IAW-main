@@ -26,53 +26,53 @@
             $donacion = htmlspecialchars($_POST['donacion']);
         
             if ($salario < 10000) {
-                $hacienda = $salario/5*100;
+                $hacienda = $salario*0.05;
                 if (isset($_POST["donacion"])) {
-                    $reduccion = $hacienda - ($salario/2*100);
-                    echo "<p>Su Tipo es impositivo es del 5% y pagará a hacienda: ' . $reduccion .' euros.</p>";
+                    $reduccion = $hacienda - ($salario*0.02);
+                    echo "Su tipo impositivo es del 5% y pagará a hacienda: " . $reduccion . " euros.";
                 }
                 else {
-                    echo "<p>Su Tipo es impositivo es del 5% y pagará a hacienda: ' . $hacienda .' euros.</p>";
+                    echo "Su tipo impositivo es del 5% y pagará a hacienda: " . $hacienda . " euros.";
                 }
             } 
-            else if ($salario >= 10000 && $salario < 20000) {
-                $hacienda = $salario/15*100;
+            else if ($salario < 20000) {
+                $hacienda = $salario*0.15;
                 if (isset($_POST["donacion"])) {
-                    $reduccion = $hacienda - ($salario/2*100);
-                    echo "<p>Su Tipo es impositivo es del 15% y pagará a hacienda: ' . $reduccion .' euros.</p>";
+                    $reduccion = $hacienda - ($salario*0.02);
+                    echo "Su tipo impositivo es del 15% y pagará a hacienda: " . $reduccion. " euros.";
                 }
                 else {
-                    echo "<p>Su Tipo es impositivo es del 15% y pagará a hacienda: ' . $hacienda .' euros.</p>";
+                    echo "Su tipo impositivo es del 15% y pagará a hacienda: " . $hacienda. " euros.";
                 }
             } 
-            else if ($salario >= 20000 && $salario < 35000) {
-                $hacienda = $salario/20*100;
+            else if ($salario < 35000) {
+                $hacienda = $salario*0.20;
                 if (isset($_POST["donacion"])) {
-                    $reduccion = $hacienda - ($salario/2*100);
-                    echo "<p>Su Tipo es impositivo es del 20% y pagará a hacienda: ' . $reduccion .' euros.</p>";
+                    $reduccion = $hacienda - ($salario*0.02);
+                    echo "Su tipo impositivo es del 20% y pagará a hacienda: " .  $reduccion . " euros.";
                 }
                 else {
-                    echo "<p>Su Tipo es impositivo es del 20% y pagará a hacienda: ' . $hacienda .' euros.</p>";
+                    echo "Su tipo impositivo es del 20% y pagará a hacienda: " .  $hacienda . " euros.";
                 }
             } 
-            else if ($salario >= 35000 && $salario <= 60000) {
-                $hacienda = $salario/30*100;
+            else if ($salario < 60000) {
+                $hacienda = $salario*0.30;
                 if (isset($_POST["donacion"])) {
-                    $reduccion = $hacienda - ($salario/2*100);
-                    echo "<p>Su Tipo es impositivo es del 30% y pagará a hacienda: ' . $reduccion .' euros.</p>";
+                    $reduccion = $hacienda - ($salario*0.02);
+                    echo "Su tipo impositivo es del 30% y pagará a hacienda: " . $reduccion . " euros.";
                 }
                 else {
-                    echo "<p>Su Tipo es impositivo es del 30% y pagará a hacienda: ' . $hacienda .' euros.</p>";
+                    echo "Su tipo impositivo es del 30% y pagará a hacienda: " . $hacienda . " euros.";
                 }
             } 
             else {
-                $hacienda = $salario/45*100;
+                $hacienda = $salario*0.45;
                 if (isset($_POST["donacion"])) {
-                    $reduccion = $hacienda - ($salario/2*100);
-                    echo "<p>Su Tipo es impositivo es del 45% y pagará a hacienda: ' . $reduccion .' euros.</p>";
+                    $reduccion = $hacienda - ($salario*0.02);
+                    echo "Su tipo impositivo es del 45% y pagará a hacienda: " . $reduccion . " euros.";
                 }
                 else {
-                    echo "<p>Su Tipo es impositivo es del 45% y pagará a hacienda: ' . $hacienda .' euros.</p>";
+                    echo "Su tipo impositivo es del 45% y pagará a hacienda: " . $hacienda . " euros.";
                 }
             }
         }

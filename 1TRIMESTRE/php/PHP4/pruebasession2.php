@@ -12,12 +12,15 @@
         // Devolver los valores de sesión
         echo "Nombre de usuario: " . $_SESSION["usuario"];
     ?>
-    <input type="submit" value="CERRAR SESION" name='submit' onclick=" window.location = 'pruebasession.php'">
+    <input type="submit" value="CERRAR SESION" name='submit'>
     
     <?php
         if (isset($_POST['submit'])) {
             // Terminar la sesión:
             session_destroy();
+
+            header("Location: pruebasession.php");
+            exit();
         }
     ?>
 </body>
