@@ -2,12 +2,19 @@ var errores;
 
 function reinicio() {
     errores = 0;
-    document.getElementById("enombre").innerHTML="";
-    document.getElementById("eapellido").innerHTML="";
-    document.getElementById("ecorreo").innerHTML="";
+    document.getElementById("easunto").innerHTML="";
     document.getElementById("edni").innerHTML="";
-    document.getElementById("epin").innerHTML="";
+    document.getElementById("enombre").innerHTML="";
+    document.getElementById("e1apellido").innerHTML="";
+    document.getElementById("nacimiento").innerHTML="";
     document.getElementById("etelefono").innerHTML="";
+    document.getElementById("edomicilio").innerHTML="";
+    document.getElementById("emunicipio").innerHTML="";
+    document.getElementById("eoficina").innerHTML="";
+    document.getElementById("einfo").innerHTML="";
+    document.getElementById("eanexo1").innerHTML="";
+    document.getElementById("eanexo2").innerHTML="";
+    document.getElementById("eacepto").innerHTML="";
 }
 
 function validar() {
@@ -72,7 +79,7 @@ function validar() {
     //NACIMIENTO
     var nacimiento = document.getElementById("nacimiento").value;
 
-    if (nacimiento == "dd/mm/aaaa"){
+    if (nacimiento == ""){
         document.getElementById("enacimiento").innerHTML="Requerido";
         errores+=1;
     }
@@ -118,13 +125,13 @@ function validar() {
     }
 
     //ANEXOS
-    var fileSizeI = $('#anexo1')[0].files[0].size;
+    var fileSizeI = document.getElementById('anexo1').files.size;
     var siezekiloByteI = parseInt(fileSizeI / 1024);
     if (siezekiloByteI >  2000) {
         document.getElementById("eanexo1").innerHTML="Demasiado grande";
     }
 
-    var fileSizeII = $('#anexo2')[0].files[0].size;
+    var fileSizeII = document.getElementById('anexo2').files.size;
     var siezekiloByteII = parseInt(fileSizeII / 1024);
     if (siezekiloByteII >  2000) {
         document.getElementById("eanexo2").innerHTML="Demasiado grande";
@@ -139,6 +146,6 @@ function validar() {
 
     //CONFIRMACIÓN
     if (errores == 0) {
-        alert("Tu nombre de usuario es: " + nombre.substring(0, 2)+ apellido.substring(0, 2)+ telefono.substring(6, 9))
+        alert("ok");
     }
 }
