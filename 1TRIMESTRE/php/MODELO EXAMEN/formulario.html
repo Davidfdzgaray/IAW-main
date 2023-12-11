@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULARIO</title>
+</head>
+<style>
+    p {
+        color: red;
+    }
+    
+    input[type=number]::-webkit-inner-spin-button, 
+    
+    input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none; 
+        margin: 0; 
+    }
+    
+    input[type=number] { -moz-appearance:textfield; }
+</style>
+<script src="formulario.js"></script>
+<body>
+    <h1>Formulario de Contacto</h1>
+
+    <label for="asunto">Asunto*:</label> <input type="text" id="asunto">
+    <p id="easunto"></p>
+
+    <label for="dni">DNI/NIE*:</label> <input type="text" id="dni">
+    <p id="edni"></p>
+
+    <label for="nombre">Nombre*:</label> <input type="text" id="nombre">
+    <p id="enombre"></p>
+
+    <label for="1apellido">Primer Apellido*:</label> <input type="text" id="1apellido">
+    <p id="e1apellido"></p>
+
+    <label for="2apellido">Segundo Apellido*:</label> <input type="text" id="2apellido"><br><br>
+
+    <label for="nacimiento">Fecha nacimiento (dd/mm/yyyy)*:</label> <input type="date" id="nacimiento">
+    <p id="nacimiento"></p>
+
+    <label for="telefono">Teléfono de Contacto*:</label> <input type="number" id="telefono">
+    <p id="etelefono"></p>
+
+    <label for="correo">Correo Electrónico</label> <input type="email" id="correo"><br><br>
+    
+    <label for="domicilio">Domicilio*:</label> <input type="text" id="domicilio">
+    <p id="edomicilio"></p>
+
+    <label for="cp">Código Postal*:</label> <input type="number" id="cp">
+    <p id="ecp"></p>
+
+    <label for="municipio">Municipio*:</label> 
+    <select name="provincia" size="1" id="municipio">
+        <option value='selecciona'>Selecciona</option>
+        <option value='A Coruña' >A Coruña</option>
+        <option value='álava'>álava</option>
+        <option value='Albacete' >Albacete</option>
+        <option value='Alicante'>Alicante</option>
+        <option value='Almería' >Almería</option>
+        <option value='Asturias' >Asturias</option>
+        <option value='ávila' >Ávila</option>
+        <option value='Badajoz' >Badajoz</option>
+        <option value='Barcelona'>Barcelona</option>
+        <option value='Burgos' >Burgos</option>
+        <option value='Cáceres' >Cáceres</option>
+        <option value='Cádiz' >Cádiz</option>
+        <option value='Cantabria' >Cantabria</option>
+        <option value='Castellón' >Castellón</option>
+        <option value='Ceuta' >Ceuta</option>
+        <option value='Ciudad Real' >Ciudad Real</option>
+        <option value='Córdoba' >Córdoba</option>
+        <option value='Cuenca' >Cuenca</option>
+        <option value='Gerona' >Gerona</option>
+        <option value='Girona' >Girona</option>
+        <option value='Las Palmas' >Las Palmas</option>
+        <option value='Granada' >Granada</option>
+        <option value='Guadalajara' >Guadalajara</option>
+        <option value='Guipúzcoa' >Guipúzcoa</option>
+        <option value='Huelva' >Huelva</option>
+        <option value='Huesca' >Huesca</option>
+        <option value='Jaén' >Jaén</option>
+        <option value='La Rioja' >La Rioja</option>
+        <option value='León' >León</option>
+        <option value='Lleida' >Lleida</option>
+        <option value='Lugo' >Lugo</option>
+        <option value='Madrid' >Madrid</option>
+        <option value='Malaga' >Málaga</option>
+        <option value='Mallorca' >Mallorca</option>
+        <option value='Melilla' >Melilla</option>
+        <option value='Murcia' >Murcia</option>
+        <option value='Navarra' >Navarra</option>
+        <option value='Orense' >Orense</option>
+        <option value='Palencia' >Palencia</option>
+        <option value='Pontevedra'>Pontevedra</option>
+        <option value='Salamanca'>Salamanca</option>
+        <option value='Segovia' >Segovia</option>
+        <option value='Sevilla' >Sevilla</option>
+        <option value='Soria' >Soria</option>
+        <option value='Tarragona' >Tarragona</option>
+        <option value='Tenerife' >Tenerife</option>
+        <option value='Teruel' >Teruel</option>
+        <option value='Toledo' >Toledo</option>
+        <option value='Valencia' >Valencia</option>
+        <option value='Valladolid' >Valladolid</option>
+        <option value='Vizcaya' >Vizcaya</option>
+        <option value='Zamora' >Zamora</option>
+        <option value='Zaragoza'>Zaragoza</option>
+    </select>
+    <p id="emunicipio"></p>
+
+    <label for="oficina">Oficina*:</label> 
+    <select name="oficina" size="1" id="oficina">
+        <option value='selecciona'>Selecciona</option>
+        <option value='oficina1'>Oficina 1</option>
+        <option value='oficina2'>Oficina 2</option>
+        <option value='oficina3'>Oficina 3</option>
+        <option value='oficina4'>Oficina 4</option>
+    </select>
+    <p id="eoficina"></p>
+
+    <label for="info">Información Requerida*:</label><br><br>
+    <textarea name="info" id="info" cols="50" rows="10"></textarea>
+    <p id="einfo"></p>
+
+    <label for="anexo1">Fichero Anexo I (máximo 2MB):</label> 
+    <input type="file" name="anexo1" id="anexo1">
+    <p id="eanexo1"></p>
+
+    <label for="anexo2">Fichero Anexo II (máximo 2MB):</label> 
+    <input type="file" name="anexo2" id="anexo2">
+    <p id="eanexo2"></p>
+
+    <input type="checkbox" name="acepto" id="acepto">
+    <label for="acepto">He leído y acepto la política de datos y normas de uso*</label>
+    <p id="eacepto"></p>
+
+    <button onclick="validar()">Enviar</button>
+</body>
+</html>
