@@ -7,9 +7,9 @@
 </head>
 <body>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-        Usuario:<br><br>
-        <input type="text" name="usuario">
-        Contraseña:<br><br>
+        Usuario:<br>
+        <input type="text" name="usuario"><br>
+        Contraseña:<br>
         <input type="text" name="contrasena">
         <input type="submit" value="INICIAR SESION" name='submit'>
     </form>
