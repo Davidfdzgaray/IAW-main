@@ -6,11 +6,6 @@
     <title>SESSION</title>
 </head>
 <body>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-        Usuario:<br><br>
-        <input type="text" name="usuario">
-        <input type="submit" value="INICIAR SESION" name='submit'>
-    </form>
     <?php
         if (isset($_POST['submit'])) {
             // Comienzo de la sesión
@@ -22,5 +17,10 @@
             exit();
         }
     ?>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+        Usuario:<br><br>
+        <input type="text" name="usuario">
+        <input type="submit" value="INICIAR SESION" name='submit'>
+    </form>
 </body>
 </html>
