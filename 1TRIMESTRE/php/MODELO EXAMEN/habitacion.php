@@ -71,11 +71,12 @@
                 echo "<script>alert('HAY ERRORES');</script>";
             }
             else {
+                echo "<br>";
                 echo "RESUMEN DE LA RESERVA:<br>";
                 echo "Nombre y apellidos: " .$nombre. " ". $apellidos."<br>";
                 echo "Email: ".$email."<br>";
                 echo "DNI: ".$dni."<br>";
-                echo "Habitación elegida: ".$habitacion."<br>";
+                echo "Habitación elegida:<br><br>";
                 
                 switch ($habitacion) {
                     case 1:
