@@ -14,7 +14,6 @@
     <?php
         if (isset($_POST['submit'])) {
             $url = $_POST['url'];
-            echo file_get_contents($url);
 
             // Validar la URL
             if (filter_var($url, FILTER_VALIDATE_URL)) {
