@@ -32,7 +32,7 @@
                 if (!empty($emails)) {
                     echo '<h2>Direcciones de correo electrónico encontradas:</h2>';
                     echo '<ul>';
-                    foreach ($emails as $email) {
+                    foreach (array_unique($emails as $email)) {
                         echo '<li>' . $email . '</li>';
                     }
                     echo '</ul>';
