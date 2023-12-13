@@ -27,7 +27,7 @@ $(document).ready(function () {
                 $('#resultado').html(`
                 <p>Index de Calidad de Aire: ${data.list[0].main.aqi}</p>
                 <p>Calidad de Aire: ${tiempo}</p>
-                <p>Monóxido de Carbono: ${data.list[0].components.pm10}μg/m3</p>
+                <p>Monóxido de Carbono: ${data.list[0].components.co} μg/m3</p>
                 `);
             },
             error: function () {
