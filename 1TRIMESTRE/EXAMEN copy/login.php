@@ -13,17 +13,17 @@
     </form>
 
     <?php
-        $usuario = htmlspecialchars($_POST['usuario']);
-        $contrasena = htmlspecialchars($_POST['contrasena']);
+        include 'config2.php';
 
-        //crypt();
+        $usuario = htmlspecialchars($_POST["usuario"]);
+        $contrasena = htmlspecialchars($_POST["contrasena"]);
 
         if(isset($_POST["submit"])) {
-            if ($usuario=='admin' && $contrasena=='H4CK3R4$1R') {
-                echo "<script>alert('Acceso Aceptado');</script>";
+            if ($usuario==usuario && $contrasena==contrasena) {
+                echo 'Acceso Aceptado';
             }
             else {
-                echo "<script>alert('Acceso Denegado');</script>";
+                echo 'Acceso Denegado';
             }
         }
     ?> 

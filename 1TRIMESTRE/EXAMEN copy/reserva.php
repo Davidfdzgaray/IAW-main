@@ -29,19 +29,19 @@
         DNI:
         <input type="text" name="dni"><br><br>
 
-        Nº Personas:
-        <input type="text" name="personas"><br><br>
+        Día de Entrada:
+        <input type="date" name="diae"><br><br>
 
-        Nº Habitaciones:
-        <input type="text" name="nhabitaciones"><br><br>
+        Nº de Días:
+        <input type="number" name="ndias"><br><br>
 
         Habitación:
         <select name="habitacion" size="1">
             <option value=0>Selecciona</option>
-            <option value=1>Simple 65€</option>
-            <option value=2>Doble 80€</option>
-            <option value=3>Triple 140€</option>
-            <option value=4>Suite 180€</option>
+            <option value=1>Simple 30€</option>
+            <option value=2>Doble 50€</option>
+            <option value=3>Triple 80€</option>
+            <option value=4>Suite 100€</option>
         </select><br><br>
 
         <input type="submit" value="Comprar" name='submit'>
@@ -57,36 +57,37 @@
             $suite='../media/hab3.png';
 
             //NOMBRE Y APELLIDOS
-            $nombre = $_POST["nombre"];
-            $apellidos = $_POST["apellidos"];
+            $nombre = htmlspecialchars($_POST["nombre"]);
+            $apellidos = htmlspecialchars($_POST["apellidos"]);
             
             if ($nombre == "" || $apellidos == ""){
                 $errores+=1;
             }
 
             //EMAIL
-            $email = $_POST["email"];
+            $email = htmlspecialchars($_POST["email"]);
 
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
                 $errores += 1;
             }
 
             //DNI
-            $dni = $_POST["dni"];
+            $dni = htmlspecialchars($_POST["dni"]);
 
             if (!preg_match('/^[0-9]{8}[a-zA-Z]$/', $dni)) {
                 $errores+=1;
             }
 
-            //Nº HABITACION Y PERSONAS
-            $personas = $_POST["personas"];
-            $nhabitaciones = $_POST["nhabitaciones"];
+            //Nº DIAS Y DIA ENTRADA
+            $ndias = htmlspecialchars($_POST["ndias"]);
+            $diae = htmlspecialchars($_POST["diae"]);
+            $diaactual = date('dd-mm-aaaa');
             
-            if ($nhabitaciones == "" || $nhabitaciones < 0){
+            if ($ndias == "" || $ndias < 0){
                 $errores+=1;
             }
 
-            if ($personas == "" || $personas < 0){
+            if ($diae < $diaactual){
                 $errores+=1;
             }
             
@@ -97,25 +98,20 @@
                 $errores+=1;
             }
             else if ($habitacion == 1) {
-                $caben=1;
-                $precioh = 65;
+                $precioh = 30;
             }
             else if ($habitacion == 2) {
-                $caben=2;
-                $precioh = 80;
+                $precioh = 50;
             }
             else if ($habitacion == 3) {
-                $caben=3;
-                $precioh = 140;
+                $precioh = 80;
             }
             else if ($habitacion == 4){
-                $caben=4;
-                $precioh = 180;
+                $precioh = 100;
             }
 
             //COMPROBACIONES
-            $perxhab = $caben * $nhabitaciones;
-            $precio = $precioh * $nhabitaciones;
+            $precio = $precioh * $ndias;
 
             if ($errores != 0) {
                 echo "<script>alert('HAY ERRORES');</script>";
@@ -130,7 +126,7 @@
                     echo "Nombre y apellidos: " .$nombre. " ". $apellidos."<br>";
                     echo "Email: ".$email."<br>";
                     echo "DNI: ".$dni."<br>";
-                    echo "Precio: ".$precio."€<br>";
+                    echo "Importe Total: ".$precio."€<br>";
                     echo "Habitación elegida:<br><br>";
                     
                     switch ($habitacion) {
