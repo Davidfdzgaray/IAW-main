@@ -1,8 +1,8 @@
 <?php
-$host = 'sdb-w.hosting.stackcp.net';   
-$user = 'gestion_incidencias-323133eda3';   
-$pass = "en97j64z81";   
-$database = 'gestion_incidencias-323133eda3';     
+$host = 'loading.thsite.top';   
+$user = 'thsi_35748555';   
+$pass = "31ZGu!vR";   
+$database = 'thsi_35748555_bdpruebas';     
 $conn = mysqli_connect($host,$user,$pass,$database);   
 if (!$conn) {                                             
     die("Conexión fallida con base de datos: " . mysqli_connect_error());     
