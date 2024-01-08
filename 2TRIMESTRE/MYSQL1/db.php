@@ -1,13 +1,15 @@
 <?php
-$host = 'loading.thsite.top';   
-$user = 'thsi_35748555';   
-$pass = "31ZGu!vR";   
-$database = 'thsi_35748555_bdpruebas';     
-$conn = mysqli_connect($host,$user,$pass,$database);   
-if (!$conn) {                                             
-    die("Conexión fallida con base de datos: " . mysqli_connect_error());     
-  }
-echo "Connected successfully";
+$servername = 'loading.thsite.top';   
+$username = 'thsi_35748555';   
+$password = "31ZGu!vR";   
+$dbname = 'thsi_35748555_bdpruebas';     
+
+try {
+  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+  // set the PDO error mode to exception
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  echo "Connected successfully";
+} catch(PDOException $e) {
+  echo "Connection failed: " . $e->getMessage();
+}
 ?>
-
-
