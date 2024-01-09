@@ -4,7 +4,7 @@
 
   $sql = "UPDATE usuario SET USERNAME='paco' WHERE ID=2";
 
-  if ($conn->query($sql) === TRUE) {
+  if ($conn->query($sql) == TRUE) {
     echo "Cambio realizado correctamente";
   } else {
     echo "Error: " . $conn->error;
