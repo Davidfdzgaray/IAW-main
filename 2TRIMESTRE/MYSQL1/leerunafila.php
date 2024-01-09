@@ -8,7 +8,7 @@
       echo "<table><tr><th>ID</th><th>Name</th></tr>";
       // output data of each row
       while($row = $result->fetch_assoc()) {
-        echo "<tr><td>".$row["id"]."</td><td>".$row["username"]."</td></tr>";
+        echo "<tr><td>".$row["ID"]."</td><td>".$row["USERNAME"]."</td></tr>";
       }
       echo "</table>";
     } else {
