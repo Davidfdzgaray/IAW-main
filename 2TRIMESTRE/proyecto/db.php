@@ -1,8 +1,8 @@
 <?php
-$servername = 'sql307.thsite.top';   
+$servername = 'sql307.byetcluster.com';   
 $username = 'thsi_35748555';   
 $password = "31ZGu!vR";   
-$dbname = 'thsi_35748555_bdpruebas';     
+$dbname = 'thsi_35748555_proyecto';     
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
