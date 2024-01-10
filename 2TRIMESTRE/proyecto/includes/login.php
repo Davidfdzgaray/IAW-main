@@ -1,23 +1,41 @@
 <?php include "../header.php" ?>
 <?php 
-    if (isset($_POST['submit'])) {
+    if (isset($_POST['iniciosesion'])) {
         $usuario= htmlspecialchars($_POST["usuario"]);
         $contrasena= htmlspecialchars($_POST["contrasena"]);
+        $codificada = base64_encode($contrasena);
 
         $result = $conn->query("SELECT * FROM usuarios WHERE username = '$usuario'");
 
         if($row = $result->fetch_assoc()){
             //Si el usuario es correcto ahora validamos su contraseña
-            if($row["password"] == $contrasena){ 
+            if ($codificada == $row["password"]){ 
                 echo "<script>window.location='home.php';</script>"; 
             }
             else {
-                echo "<script>alert('Contraseña incorrecta')</script>";
+                echo "<script>alert('Contraseña incorrecta.')</script>";
             }
         }
         else {
-            echo "<script>alert('Usuario incorrecto')</script>";
+            echo "<script>alert('Usuario incorrecto.')</script>";
         }
+        $conn->close();
+    }
+
+    if (isset($_POST['crearusuario'])) {
+        $usuario= htmlspecialchars($_POST["usuario"]);
+        $contrasena= htmlspecialchars($_POST["contrasena"]);
+        $codificada = base64_encode($contrasena);
+
+        $sql = "INSERT INTO usuario (username, password) VALUES ($usuario, $codificada)";
+
+        if ($conn->query($sql) == TRUE) {
+            echo "<script>alert('Usuario añadido correctamente.')</script>";
+        } 
+        else {
+            echo "<script>alert('Error en la creación del usuario.')</script>";
+        }
+
         $conn->close();
     }
 ?>
@@ -35,7 +53,8 @@
             <label for="contrasena">Contraseña:</label><br>
             <input type="password" name="contrasena" id="contrasena" required><br><br>
 
-            <input type="submit" name='submit' class="btn btn-primary mt-2" value="Iniciar Sesión">
+            <input type="submit" name='iniciosesion' class="btn btn-primary mt-2" value="Iniciar Sesión">
+            <input type="submit" name='crearusuario' class="btn btn-primary mt-2" value="Crear Usuario">
         </div>
     </form>
   </div>
