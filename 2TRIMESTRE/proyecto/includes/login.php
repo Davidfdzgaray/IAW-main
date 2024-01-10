@@ -27,15 +27,21 @@
         $contrasena= htmlspecialchars($_POST["contrasena"]);
         $codificada = base64_encode($contrasena);
 
-        $sql = "INSERT INTO usuarios (username, password) VALUES ($usuario, $codificada)";
+        $result = $conn->query("SELECT * FROM usuarios WHERE username = '$usuario'");
 
-        if ($conn->query($sql) == TRUE) {
-            echo "<script>alert('Usuario añadido correctamente.')</script>";
-        } 
-        else {
-            echo "<script>alert('Error en la creación del usuario.')</script>";
+        if ($row = $result->fetch_assoc()) {
+            echo "<script>alert('Este usuario ya existe.')</script>";
         }
+        else {
+            $sql = "INSERT INTO usuarios (username, password) VALUES ('$usuario', '$codificada')";
 
+            if ($conn->query($sql) == TRUE) {
+                echo "<script>alert('Usuario añadido correctamente.')</script>";
+            } 
+            else {
+                echo "<script>alert('Error en la creación del usuario.')</script>";
+            }
+        }    
         $conn->close();
     }
 ?>
