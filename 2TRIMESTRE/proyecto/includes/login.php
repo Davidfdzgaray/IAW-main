@@ -10,6 +10,11 @@
         if($row = $result->fetch_assoc()){
             //Si el usuario es correcto ahora validamos su contraseña
             if ($codificada == $row["password"]){ 
+                // Comienzo de la sesión
+                session_start();
+                // Guardar datos de sesión
+                $_SESSION["usuario"] = $_POST['usuario'];
+                
                 echo "<script>window.location='home.php';</script>"; 
             }
             else {
