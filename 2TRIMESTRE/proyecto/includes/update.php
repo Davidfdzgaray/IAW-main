@@ -37,6 +37,7 @@
         echo "Se ha producido un error al actualizar la incidencia.";
       else
         echo "<script type='text/javascript'>alert('¡Datos de la incidencia actualizados!')</script>";
+        echo "<script>window.location='home.php';</script>";
     }             
 ?>
 

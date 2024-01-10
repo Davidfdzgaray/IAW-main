@@ -1,26 +1,24 @@
 <?php  include "../header.php" ?>
 <?php 
-  if(isset($_POST['crear'])) 
-    {
-        $planta = htmlspecialchars($_POST['planta']);
-        $aula = htmlspecialchars($_POST['aula']);
-        $descripcion = htmlspecialchars($_POST['descripcion']);
-        $comentario = htmlspecialchars($_POST['comentario']);
-        $fecha_alta = htmlspecialchars($_POST['fecha_alta']);
-        $fecha_rev = htmlspecialchars($_POST['fecha_rev']);
-        $fecha_sol = htmlspecialchars($_POST['fecha_sol']);
-      
-        $query= "INSERT INTO incidencias(planta, aula, descripcion, fecha_alta, fecha_rev, fecha_sol, comentario) VALUES('{$planta}','{$aula}','{$descripcion}','{$fecha_alta}','{$fecha_rev}','{$fecha_sol}','{$comentario}')";
-        $resultado = mysqli_query($conn,$query);
-    
-          if (!$resultado) {
-              echo "Algo ha ido mal añadiendo la incidencia: ". mysqli_error($conn);
-          }
-          else
-          {
-            echo "<script type='text/javascript'>alert('¡Incidencia añadida con éxito!')</script>";
-          }         
-    }
+  if(isset($_POST['crear'])) {
+    $planta = htmlspecialchars($_POST['planta']);
+    $aula = htmlspecialchars($_POST['aula']);
+    $descripcion = htmlspecialchars($_POST['descripcion']);
+    $comentario = htmlspecialchars($_POST['comentario']);
+    $fecha_alta = htmlspecialchars($_POST['fecha_alta']);
+    $fecha_rev = htmlspecialchars($_POST['fecha_rev']);
+    $fecha_sol = htmlspecialchars($_POST['fecha_sol']);
+  
+    $sql= "INSERT INTO incidencias (planta, aula, descripcion, fecha_alta, fecha_rev, fecha_sol, comentario) VALUES ('$planta','$aula','$descripcion','$fecha_alta','$fecha_rev','$fecha_sol','$comentario')";
+
+    if ($conn->query($sql) == TRUE) {
+      echo "<script type='text/javascript'>alert('¡Incidencia añadida con éxito!')</script>";
+      echo "<script>window.location='home.php';</script>";
+    } 
+    else {
+      echo "Algo ha ido mal añadiendo la incidencia.";
+    }      
+  }
 ?>
 <h1 class="text-center">Añadir incidencia</h1>
   <div class="container">
