@@ -16,7 +16,7 @@
       <li class="nav-item">
         <a class="nav-link active" style="color: black;" aria-current="page" href="../index.php">Cerrar sesión<?php session_destroy();?></a>
       </li>
-      <li class="nav-item" style="text-align: end;">
+      <li class="nav-item" style="position: relative;right: -200%;">
         <a class="nav-link active" style="color: black;" aria-current="page">Sesión iniciada como: <?php echo $_SESSION["usuario"]?></a>
       </li>
     </ul>
