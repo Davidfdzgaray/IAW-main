@@ -63,7 +63,7 @@
     }             
 ?>
 
-<h1 class="text-center">Actualizar incidencia</h1>
+<h1 class="text-center">Actualizar incidencia <?php echo 'Nº '. $_GET['incidencia_id']?></h1>
   <div class="container ">
     <form action="" method="post">
       <div class="form-group">

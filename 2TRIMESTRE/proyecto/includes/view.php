@@ -22,7 +22,7 @@
   </div>
 </nav>
 
-<h1 class="text-center">Detalles de incidencia</h1>
+<h1 class="text-center">Detalles de incidencia <?php echo 'Nº '. $_GET['incidencia_id']?></h1>
   <div class="container">
     <table class="table table-striped table-bordered table-hover">
       <thead class="table-dark">
@@ -38,8 +38,7 @@
         </tr>  
       </thead>
         <tbody>
-          <tr>
-               
+          <tr>   
             <?php
               if (isset($_GET['incidencia_id'])) {
                   $incidenciaid = htmlspecialchars($_GET['incidencia_id']); 
