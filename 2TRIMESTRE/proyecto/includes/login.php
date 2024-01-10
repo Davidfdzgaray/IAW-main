@@ -27,7 +27,7 @@
         $contrasena= htmlspecialchars($_POST["contrasena"]);
         $codificada = base64_encode($contrasena);
 
-        $sql = "INSERT INTO usuario (username, password) VALUES ($usuario, $codificada)";
+        $sql = "INSERT INTO usuarios (username, password) VALUES ($usuario, $codificada)";
 
         if ($conn->query($sql) == TRUE) {
             echo "<script>alert('Usuario añadido correctamente.')</script>";
