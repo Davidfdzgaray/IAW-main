@@ -4,13 +4,19 @@
         $usuario= htmlspecialchars($_POST["usuario"]);
         $contrasena= htmlspecialchars($_POST["contrasena"]);
 
-        $result = $conn->query("SELECT * FROM usuarios WHERE username = '$nombre' AND password = '$contrasena'");
+        $result = $conn->query("SELECT * FROM usuarios WHERE username = '$usuario'");
 
-        if(!$result){
-            echo "Usuario o contraseña incorrecta.";
+        if($row = $result->fetch_assoc()){
+            //Si el usuario es correcto ahora validamos su contraseña
+            if($row["password"] == $contrasena){ 
+                echo "<script>window.location='home.php';</script>"; 
+            }
+            else {
+                echo "<script>alert('Contraseña incorrecta')</script>";
+            }
         }
-        else { 
-            echo "<script>window.location='home.php';</script>";
+        else {
+            echo "<script>alert('Usuario incorrecto')</script>";
         }
         $conn->close();
     }
