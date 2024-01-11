@@ -50,6 +50,7 @@
                   $vista_incidencias= mysqli_query($conn,$query);
 
                   while($row= mysqli_fetch_assoc($vista_incidencias)){
+                    $numero++;
                     $id = $row['id'];                
                     $planta = $row['planta'];        
                     $aula = $row['aula'];         
@@ -58,7 +59,7 @@
                     $fecha_rev = $row['fecha_rev'];        
                     $fecha_sol = $row['fecha_sol'];        
                     $comentario = $row['comentario']; 
-                    echo "<tr >";
+                    echo "<tr id='$numero'>";
                     echo " <th scope='row' >{$id}</th>";
                     echo " <td > {$planta}</td>";
                     echo " <td > {$aula}</td>";
@@ -75,12 +76,15 @@
                     if ($fecha_sol == '0000-00-00') {
                       $total++;
                       $num_pend++;
+                      echo "<script>document.getElementById('$numero').style.backgroundColor = 'rgba(255,0,0,0.3)'</script>";
                     }
                     else {
                       $total++;
                       $num_res++;
+                      echo "<script>document.getElementById('$numero').style.backgroundColor = 'rgba(0,255,0,0.3)'</script>";
                     }
                   }  
+
                   echo "<h2 class='text-center'>Nº total de incidencias: {$total}</h2>";
                   echo "<h2 class='text-center'>Nº de incidencias pendientes: {$num_pend}</h2>";
                   echo "<h2 class='text-center'>Nº de incidencias resueltas: {$num_res}</h2>";

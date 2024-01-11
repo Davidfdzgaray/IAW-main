@@ -46,6 +46,7 @@
 
                 while($row = mysqli_fetch_assoc($vista_incidencias))
                 {
+                  $numero++;
                   $id = $row['id'];                
                   $planta = $row['planta'];        
                   $aula = $row['aula'];         
@@ -55,7 +56,7 @@
                   $fecha_sol = $row['fecha_sol'];        
                   $comentario = $row['comentario'];
 
-                      echo "<tr >";
+                      echo "<tr id='$numero'>";
                       echo " <td >{$id}</td>";
                       echo " <td > {$planta}</td>";
                       echo " <td > {$aula}</td>";
@@ -65,6 +66,13 @@
                       echo " <td >{$fecha_sol} </td>";
                       echo " <td >{$comentario} </td>";
                       echo " </tr> ";
+
+                      if ($fecha_sol == '0000-00-00') {
+                        echo "<script>document.getElementById('$numero').style.backgroundColor = 'rgba(255,0,0,0.3)'</script>";
+                      }
+                      else {
+                        echo "<script>document.getElementById('$numero').style.backgroundColor = 'rgba(0,255,0,0.3)'</script>";
+                      }
                 }
                 
             ?>
