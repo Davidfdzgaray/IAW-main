@@ -1,4 +1,8 @@
 <?php  include '../header.php'?>
+<?php
+  // Inicia o continua la sesión
+  session_start();
+?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <ul class="navbar-nav me-auto mb-2">
@@ -9,12 +13,12 @@
         <a class="nav-link active" style="color: black;" aria-current="page" href="view2.php">Ver Incidencias</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" style="color: black;" aria-current="page" href="../index.php">Cerrar sesión</a>
-      </li>
-      <li class="nav-item" style="position: relative;right: -200%;">
-        <a class="nav-link active" style="color: black;" aria-current="page">Sesión iniciada como:</a>
+        <a class="nav-link active" style="color: black;" aria-current="page" href="../index.php">Cerrar Sesión<?php session_destroy();?></a>
       </li>
     </ul>
+    <span class="navbar-text">
+      Sesión Iniciada Como: <?php echo $_SESSION["usuario"]?>
+    </span>
   </div>
 </nav>
 

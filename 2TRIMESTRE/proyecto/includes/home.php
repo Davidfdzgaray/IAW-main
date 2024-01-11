@@ -14,12 +14,12 @@
         <a class="nav-link active" style="color: black;" aria-current="page" href="view2.php">Ver Incidencias</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" style="color: black;" aria-current="page" href="../index.php">Cerrar sesión<?php session_destroy();?></a>
-      </li>
-      <li class="nav-item" style="position: relative;right: -200%;">
-        <a class="nav-link active" style="color: black;" aria-current="page">Sesión iniciada como: <?php echo $_SESSION["usuario"]?></a>
+        <a class="nav-link active" style="color: black;" aria-current="page" href="../index.php">Cerrar Sesión<?php session_destroy();?></a>
       </li>
     </ul>
+    <span class="navbar-text">
+      Sesión Iniciada Como: <?php $_SESSION["usuario"]?>
+    </span>
   </div>
 </nav>
 
