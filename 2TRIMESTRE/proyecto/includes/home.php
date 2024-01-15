@@ -96,7 +96,6 @@
   </div>
 <div class="container text-center mt-5">
   <a href="create.php" class='btn btn-outline-dark mb-2'> <i class="bi bi-person-plus"></i> Añadir incidencia</a><br>
-  <a href="../index.php" class="btn btn-warning mt-5"> Volver </a>
 <div>
 
 <?php include "../footer.php" ?>
