@@ -1,5 +1,8 @@
 <?php include "../header.php" ?>
 <?php 
+// Comienzo de la sesión
+session_start();
+
     if (isset($_POST['iniciosesion'])) {
         $usuario= htmlspecialchars($_POST["usuario"]);
         $contrasena= htmlspecialchars($_POST["contrasena"]);
@@ -10,8 +13,6 @@
         if($row = $result->fetch_assoc()){
             //Si el usuario es correcto ahora validamos su contraseña
             if ($codificada == $row["password"]){ 
-                // Comienzo de la sesión
-                session_start();
                 // Guardar datos de sesión
                 $_SESSION["usuario"] = $_POST['usuario'];
                 
@@ -23,11 +24,11 @@
                 }
             }
             else {
-                echo "<script>alert('Contraseña incorrecta.')</script>";
+                echo "<script>alert('Contraseña incorrecta')</script>";
             }
         }
         else {
-            echo "<script>alert('Usuario incorrecto.')</script>";
+            echo "<script>alert('Usuario incorrecto')</script>";
         }
         $conn->close();
     }

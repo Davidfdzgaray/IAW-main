@@ -46,15 +46,18 @@
                 $usuario = $row['username'];        
                 $contrasena = $row['password'];   
 
-                echo "<tr>";
-                echo " <td >{$id}</td>";
-                echo " <td > {$usuario}</td>";
-                echo " <td > {$contrasena}</td>";
-                //ELIMINAR
-                echo " <td class='text-center'>  <a href='deleteuser.php?eliminarusuario={$id}' class='btn btn-danger'> <i class='bi bi-trash'></i> Eliminar</a> </td>";
-                //MODIFICAR
-                echo " <td class='text-center'> <a href='updateuser.php?editarusuario&usuario_id={$id}' class='btn btn-secondary'><i class='bi bi-pencil'></i> Editar</a> </td>";
-                echo " </tr> ";
+                if ($usuario!='admin') {
+                
+                  echo "<tr>";
+                  echo " <td >{$id}</td>";
+                  echo " <td > {$usuario}</td>";
+                  echo " <td > {$contrasena}</td>";
+                  //ELIMINAR
+                  echo " <td class='text-center'>  <a href='deleteuser.php?eliminarusuario={$id}' class='btn btn-danger'> <i class='bi bi-trash'></i> Eliminar</a> </td>";
+                  //MODIFICAR
+                  echo " <td class='text-center'> <a href='updateuser.php?editarusuario&usuario_id={$id}' class='btn btn-secondary'><i class='bi bi-pencil'></i> Editar</a> </td>";
+                  echo " </tr> ";
+                }
               }
             ?>
           </tr>  

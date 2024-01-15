@@ -3,6 +3,10 @@
 <?php
   // Inicia o continua la sesión
   session_start();
+
+  if ($_SESSION["usuario"]=="") {
+    echo "<script>window.location='login.php';</script>"; 
+  }
 ?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
@@ -18,7 +22,7 @@
       </li>
     </ul>
     <span class="navbar-text">
-      Sesión Iniciada Como: <?php $_SESSION["usuario"]?>
+      Sesión Iniciada Como: <?php echo $_SESSION["usuario"]?>
     </span>
   </div>
 </nav>
