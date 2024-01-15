@@ -1,4 +1,9 @@
 <?php include "../header.php" ?>
+<?php 
+    if ($_SESSION["usuario"]!='admin') {
+        //echo "<script>window.location='home.php';</script>"; 
+    }
+?>
 <div class="container mt-5">
     <h1 class="text-center">Bienvenido Administrador!</h1>
         <p class="text-center">

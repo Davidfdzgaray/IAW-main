@@ -1,4 +1,7 @@
 <?php
+  // Inicia o continua la sesión
+  session_start();
+  
 $servername = 'sql307.byetcluster.com';   
 $username = 'thsi_35748555';   
 $password = "31ZGu!vR";   

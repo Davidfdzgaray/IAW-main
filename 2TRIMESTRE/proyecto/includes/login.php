@@ -1,8 +1,5 @@
 <?php include "../header.php" ?>
 <?php 
-// Comienzo de la sesión
-session_start();
-
     if (isset($_POST['iniciosesion'])) {
         $usuario= htmlspecialchars($_POST["usuario"]);
         $contrasena= htmlspecialchars($_POST["contrasena"]);
@@ -15,7 +12,7 @@ session_start();
             if ($codificada == $row["password"]){ 
                 // Guardar datos de sesión
                 $_SESSION["usuario"] = $_POST['usuario'];
-                
+
                 if ($usuario=='admin') {
                     echo "<script>window.location='admin.php';</script>"; 
                 }
@@ -59,7 +56,7 @@ session_start();
 <div class="container mt-5">
     <h1 class="text-center">Inicio de Sesión</h1>
         <p class="text-center">
-            Introduzca su usuario y contraseña:
+            Introduzca su Usuario y Contraseña:
         </p>
   <div class="container">
     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">

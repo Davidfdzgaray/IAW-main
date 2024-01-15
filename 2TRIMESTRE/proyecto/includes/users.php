@@ -1,12 +1,9 @@
 <!-- Header -->
 <?php include "../header.php"?>
-<?php
-  // Inicia o continua la sesión
-  session_start();
-
-  if ($_SESSION["usuario"]=="") {
-    echo "<script>window.location='login.php';</script>"; 
-  }
+<?php 
+    if ($_SESSION["usuario"]!='admin') {
+        //echo "<script>window.location='home.php';</script>"; 
+    }
 ?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
