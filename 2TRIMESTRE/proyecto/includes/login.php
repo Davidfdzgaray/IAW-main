@@ -15,7 +15,12 @@
                 // Guardar datos de sesión
                 $_SESSION["usuario"] = $_POST['usuario'];
                 
-                echo "<script>window.location='home.php';</script>"; 
+                if ($usuario=='admin') {
+                    echo "<script>window.location='admin.php';</script>"; 
+                }
+                else {
+                    echo "<script>window.location='home.php';</script>"; 
+                }
             }
             else {
                 echo "<script>alert('Contraseña incorrecta.')</script>";
