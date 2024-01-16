@@ -29,13 +29,14 @@
     {
       $incidenciaid = htmlspecialchars($_GET['incidencia_id']); 
     }
+
       $query="SELECT * FROM incidencias WHERE id = $incidenciaid ";
       $vista_incidencias= mysqli_query($conn,$query);
 
       while($row = mysqli_fetch_assoc($vista_incidencias))
         {
           $id = $row['id'];                
-          $planta = $row['planta'];        
+          $planta = $row['planta'];   
           $aula = $row['aula'];         
           $descripcion = $row['descripcion'];        
           $fecha_alta = $row['fecha_alta'];        
@@ -44,7 +45,6 @@
           $comentario = $row['comentario'];
         }
     
-
     if(isset($_POST['editar'])) 
     {
       $planta = htmlspecialchars($_POST['planta']);
@@ -53,7 +53,9 @@
       $fecha_rev = htmlspecialchars($_POST['fecha_rev']);
       $fecha_sol = htmlspecialchars($_POST['fecha_sol']);
       $comentario = htmlspecialchars($_POST['comentario']);
+
       $query = "UPDATE incidencias SET planta = '{$planta}' , aula = '{$aula}' , descripcion = '{$descripcion}', fecha_alta = '{$fecha_alta}', fecha_rev = '{$fecha_rev}', fecha_sol = '{$fecha_sol}', comentario = '{$comentario}' WHERE id = {$id}";
+      
       $incidencia_actualizada = mysqli_query($conn, $query);
       if (!$incidencia_actualizada)
         echo "Se ha producido un error al actualizar la incidencia.";
@@ -68,20 +70,20 @@
     <form action="" method="post">
       <div class="form-group">
         <label for="planta" >Planta</label>
-        <select name="planta" class="form-control" value="<?php echo $planta ?>" size="1">
-            <option value='Primera Planta'>Primera Planta</option>
-            <option value='Segunda Planta'>Segunda Planta</option>
-            <option value='Tercera Planta'>Tercera Planta</option>
+        <select name="planta" class="form-control" size="1">
+            <option value='Primera Planta' <?php if ($planta=='Primera Planta') echo 'selected'; ?>>Primera Planta</option>
+            <option value='Segunda Planta' <?php if ($planta=='Segunda Planta') echo 'selected'; ?>>Segunda Planta</option>
+            <option value='Tercera Planta' <?php if ($planta=='Tercera Planta') echo 'selected'; ?>>Tercera Planta</option>
         </select>
       </div>
       <div class="form-group">
         <label for="aula" >Aula</label>
-        <select name="aula" class="form-control" value="<?php echo $aula ?>" size="1">
-            <option value='Aula 1'>Aula 1</option>
-            <option value='Aula 2'>Aula 2</option>
-            <option value='Aula 3'>Aula 3</option>
-            <option value='Aula 4'>Aula 4</option>
-            <option value='Aula 5'>Aula 5</option>
+        <select name="aula" class="form-control" size="1">
+            <option value='Aula 1' <?php if ($aula=='Aula 1') echo 'selected'; ?>>Aula 1</option>
+            <option value='Aula 2' <?php if ($aula=='Aula 2') echo 'selected'; ?>>Aula 2</option>
+            <option value='Aula 3' <?php if ($aula=='Aula 3') echo 'selected'; ?>>Aula 3</option>
+            <option value='Aula 4' <?php if ($aula=='Aula 4') echo 'selected'; ?>>Aula 4</option>
+            <option value='Aula 5' <?php if ($aula=='Aula 5') echo 'selected'; ?>>Aula 5</option>
         </select>
       </div>
       <div class="form-group">

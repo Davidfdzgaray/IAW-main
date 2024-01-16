@@ -16,7 +16,7 @@ if ($conn->connect_error) {
   die("Conexión fallida: " . $conn->connect_error);
 }
 
-//arreglas select plantas y aulas 
+//añadir obligatorios create
 //arreglas fechas 00-00-0000 y su formato
 ?>
 
