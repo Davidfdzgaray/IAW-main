@@ -4,6 +4,7 @@
   if ($_SESSION["usuario"]=="") {
     //echo "<script>window.location='login.php';</script>"; 
   }
+  $fecha_hoy = date("Y-m-d");
 ?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
@@ -26,7 +27,7 @@
 
 <?php 
   if(isset($_POST['crear'])) {
-    $fecha_alta = htmlspecialchars($_POST['fecha_alta']);
+    $fecha_alta = $fecha_hoy;
     $planta = htmlspecialchars($_POST['planta']);
     $aula = htmlspecialchars($_POST['aula']);
     $descripcion = htmlspecialchars($_POST['descripcion']);
@@ -50,7 +51,7 @@
     <form action="" method="post">
       <div class="form-group">
         <label for="planta" class="form-label">Planta</label>
-        <select name="planta" class="form-control" value="<?php echo $planta?>" size="1">
+        <select name="planta" class="form-control" size="1">
             <option value='Primera Planta'>Primera Planta</option>
             <option value='Segunda Planta'>Segunda Planta</option>
             <option value='Tercera Planta'>Tercera Planta</option>
@@ -58,7 +59,7 @@
       </div>
       <div class="form-group">
         <label for="aula" class="form-label">Aula</label>
-        <select name="aula" class="form-control" value="<?php echo $aula?>" size="1">
+        <select name="aula" class="form-control" size="1">
             <option value='Aula 1'>Aula 1</option>
             <option value='Aula 2'>Aula 2</option>
             <option value='Aula 3'>Aula 3</option>
@@ -72,7 +73,7 @@
       </div>
       <div class="form-group">
         <label for="fecha_alta" class="form-label">Fecha Alta</label>
-        <input type="date" name="fecha_alta"  class="form-control"  value="<?php new DateTime()?>" onkeydown="return false">
+        <input type="date" name="fecha_alta"  class="form-control"  value="<?php echo $fecha_hoy; ?>" disabled>
       </div>
       <div class="form-group">
         <label for="fecha_rev" class="form-label">Fecha Revisión</label>

@@ -29,7 +29,6 @@
     {
       $incidenciaid = htmlspecialchars($_GET['incidencia_id']); 
     }
-      
       $query="SELECT * FROM incidencias WHERE id = $incidenciaid ";
       $vista_incidencias= mysqli_query($conn,$query);
 
@@ -44,13 +43,13 @@
           $fecha_sol = $row['fecha_sol'];        
           $comentario = $row['comentario'];
         }
- 
+    
+
     if(isset($_POST['editar'])) 
     {
       $planta = htmlspecialchars($_POST['planta']);
       $aula = htmlspecialchars($_POST['aula']);
       $descripcion = htmlspecialchars($_POST['descripcion']);
-      $fecha_alta = htmlspecialchars($_POST['fecha_alta']);
       $fecha_rev = htmlspecialchars($_POST['fecha_rev']);
       $fecha_sol = htmlspecialchars($_POST['fecha_sol']);
       $comentario = htmlspecialchars($_POST['comentario']);
@@ -69,7 +68,7 @@
     <form action="" method="post">
       <div class="form-group">
         <label for="planta" >Planta</label>
-        <select name="planta" class="form-control" value="<?php echo $planta?>" size="1">
+        <select name="planta" class="form-control" value="<?php echo $planta ?>" size="1">
             <option value='Primera Planta'>Primera Planta</option>
             <option value='Segunda Planta'>Segunda Planta</option>
             <option value='Tercera Planta'>Tercera Planta</option>
@@ -77,7 +76,7 @@
       </div>
       <div class="form-group">
         <label for="aula" >Aula</label>
-        <select name="aula" class="form-control" value="<?php echo $aula?>" size="1">
+        <select name="aula" class="form-control" value="<?php echo $aula ?>" size="1">
             <option value='Aula 1'>Aula 1</option>
             <option value='Aula 2'>Aula 2</option>
             <option value='Aula 3'>Aula 3</option>
@@ -91,7 +90,7 @@
       </div>
       <div class="form-group">
         <label for="fecha_alta" >Fecha alta</label>
-        <input type="date" name="fecha_alta" class="form-control" value="<?php echo $fecha_alta  ?>">
+        <input type="date" name="fecha_alta" class="form-control" value="<?php echo $fecha_alta;?>" disabled>
       </div>
       <div class="form-group">
         <label for="fecha_rev" >Fecha revisión</label>

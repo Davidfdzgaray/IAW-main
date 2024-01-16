@@ -1,6 +1,6 @@
 <?php
   // Inicia o continua la sesión
-  session_set_cookie_params(120);
+  session_set_cookie_params(300);
   session_start();
   $usuario=$_SESSION['usuario'];
 
@@ -15,5 +15,9 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Conexión fallida: " . $conn->connect_error);
 }
+
+//arreglas select plantas y aulas 
+//arreglas fechas 00-00-0000 y su formato
 ?>
+
 
