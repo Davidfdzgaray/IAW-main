@@ -1,5 +1,5 @@
 <!-- Header -->
-<?php include "../header.php"?>
+<?php include "header.php" ?>
 <?php 
     if ($_SESSION["usuario"]!='admin') {
         //echo "<script>window.location='home.php';</script>"; 

@@ -1,5 +1,5 @@
 <!-- Header -->
-<?php include "../header.php";?>
+<?php include "header.php" ?>
 <?php
   if ($_SESSION["usuario"]=="") {
     //echo "<script>window.location='login.php';</script>"; 

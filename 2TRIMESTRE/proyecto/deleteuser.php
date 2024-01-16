@@ -1,4 +1,4 @@
-<?php include "../header.php" ?>
+<?php include "header.php" ?>
 <?php 
     if(isset($_GET['eliminarusuario'])) {
         $id= htmlspecialchars($_GET['eliminarusuario']);

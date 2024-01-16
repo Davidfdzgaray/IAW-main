@@ -1,4 +1,4 @@
-<?php include "../header.php" ?>
+<?php include "header.php" ?>
 <?php 
     if (isset($_POST['iniciosesion'])) {
         $usuario= htmlspecialchars($_POST["usuario"]);
