@@ -26,11 +26,11 @@
 
 <?php 
   if(isset($_POST['crear'])) {
+    $fecha_alta = htmlspecialchars($_POST['fecha_alta']);
     $planta = htmlspecialchars($_POST['planta']);
     $aula = htmlspecialchars($_POST['aula']);
     $descripcion = htmlspecialchars($_POST['descripcion']);
     $comentario = htmlspecialchars($_POST['comentario']);
-    $fecha_alta = htmlspecialchars($_POST['fecha_alta']);
     $fecha_rev = htmlspecialchars($_POST['fecha_rev']);
     $fecha_sol = htmlspecialchars($_POST['fecha_sol']);
   
@@ -72,7 +72,7 @@
       </div>
       <div class="form-group">
         <label for="fecha_alta" class="form-label">Fecha Alta</label>
-        <input type="date" name="fecha_alta"  class="form-control">
+        <input type="date" name="fecha_alta"  class="form-control"  value="<?php new DateTime()?>" onkeydown="return false">
       </div>
       <div class="form-group">
         <label for="fecha_rev" class="form-label">Fecha Revisión</label>
