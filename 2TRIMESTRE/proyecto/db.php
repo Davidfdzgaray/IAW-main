@@ -1,8 +1,8 @@
 <?php
   // Inicia o continua la sesión
-session_start();
-$usu = $_SESSION["usuario"];
-echo "<p>$usu</p>"; 
+  session_set_cookie_params(120);
+  session_start();
+  $usuario=$_SESSION['usuario'];
 
 $servername = 'sql307.byetcluster.com';   
 $username = 'thsi_35748555';   

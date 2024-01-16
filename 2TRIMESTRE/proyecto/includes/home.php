@@ -29,7 +29,6 @@
         <table class="table table-striped table-bordered table-hover">
           <thead class="table-dark">
             <tr>
-              <th  scope="col">ID</th>
               <th  scope="col">Planta</th>
               <th  scope="col">Aula</th>
               <th  scope="col">Descripción</th>
@@ -61,7 +60,6 @@
                     $fecha_sol = $row['fecha_sol'];        
                     $comentario = $row['comentario']; 
                     echo "<tr id='$numero'>";
-                    echo " <th scope='row' >{$id}</th>";
                     echo " <td > {$planta}</td>";
                     echo " <td > {$aula}</td>";
                     echo " <td >{$descripcion} </td>";

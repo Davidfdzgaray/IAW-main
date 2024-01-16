@@ -50,11 +50,21 @@
     <form action="" method="post">
       <div class="form-group">
         <label for="planta" class="form-label">Planta</label>
-        <input type="text" name="planta"  class="form-control">
+        <select name="planta" class="form-control" value="<?php echo $planta?>" size="1">
+            <option value='Primera Planta'>Primera Planta</option>
+            <option value='Segunda Planta'>Segunda Planta</option>
+            <option value='Tercera Planta'>Tercera Planta</option>
+        </select>
       </div>
       <div class="form-group">
         <label for="aula" class="form-label">Aula</label>
-        <input type="text" name="aula"  class="form-control">
+        <select name="aula" class="form-control" value="<?php echo $aula?>" size="1">
+            <option value='Aula 1'>Aula 1</option>
+            <option value='Aula 2'>Aula 2</option>
+            <option value='Aula 3'>Aula 3</option>
+            <option value='Aula 4'>Aula 4</option>
+            <option value='Aula 5'>Aula 5</option>
+        </select>
       </div>
       <div class="form-group">
         <label for="descripcion" class="form-label">Descripcion</label>

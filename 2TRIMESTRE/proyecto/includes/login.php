@@ -11,8 +11,8 @@
             //Si el usuario es correcto ahora validamos su contraseña
             if ($codificada == $row["password"]){ 
                 // Guardar datos de sesión
-                $_SESSION["usuario"] = $usuario;
-                setcookie("usuario",$usuario,  time() + (86400 * 30), "/");
+                $_SESSION['usuario']=$usuario;
+                
                 if ($usuario=='admin') {
                     echo "<script>window.location='admin.php';</script>"; 
                 }
