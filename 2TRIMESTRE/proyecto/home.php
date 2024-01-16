@@ -64,18 +64,27 @@
                     echo " <td > {$aula}</td>";
                     echo " <td >{$descripcion} </td>";
                     echo " <td >{$fecha_alta} </td>";
-                    echo " <td >{$fecha_rev} </td>";
-                    echo " <td >{$fecha_sol} </td>";
+                    echo " <td >";
+                    if ($fecha_rev != '0000-00-00') echo $fecha_rev;
+                    echo "</td>";
+                    echo " <td >";
+                    if ($fecha_sol != '0000-00-00') echo $fecha_sol;
+                    echo "</td>";
                     echo " <td >{$comentario} </td>";
                     echo " <td class='text-center'> <a href='view.php?incidencia_id={$id}' class='btn btn-primary'> <i class='bi bi-eye'></i> Ver</a> </td>";
                     echo " <td class='text-center' > <a href='update.php?editar&incidencia_id={$id}' class='btn btn-secondary'><i class='bi bi-pencil'></i> Editar</a> </td>";
                     echo " <td class='text-center'>  <a href='delete.php?eliminar={$id}' class='btn btn-danger'> <i class='bi bi-trash'></i> Eliminar</a> </td>";
                     echo " </tr> ";
 
-                    if ($fecha_sol == '0000-00-00') {
+                    if ($fecha_sol == '0000-00-00' && $fecha_rev == '0000-00-00') {
                       $total++;
                       $num_pend++;
                       echo "<script>document.getElementById('$numero').style.backgroundColor = 'rgba(255,0,0,0.3)'</script>";
+                    }
+                    else if ($fecha_sol == '0000-00-00' && $fecha_rev != '0000-00-00') {
+                      $total++;
+                      $num_pend++;
+                      echo "<script>document.getElementById('$numero').style.backgroundColor = 'rgba(255,255,0,0.3)'</script>";
                     }
                     else {
                       $total++;

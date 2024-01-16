@@ -68,8 +68,8 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="descripcion" class="form-label">Descripcion</label>
-        <input type="text" name="descripcion"  class="form-control">
+        <label for="descripcion" class="form-label">Descripcion*</label>
+        <input type="text" name="descripcion" class="form-control" required>
       </div>
       <div class="form-group">
         <label for="fecha_alta" class="form-label">Fecha Alta</label>
@@ -77,11 +77,11 @@
       </div>
       <div class="form-group">
         <label for="fecha_rev" class="form-label">Fecha Revisión</label>
-        <input type="date" name="fecha_rev"  class="form-control">
+        <input type="date" name="fecha_rev" class="form-control" disabled>
       </div>
       <div class="form-group">
         <label for="fecha_sol" class="form-label">Fecha Solución</label>
-        <input type="date" name="fecha_sol"  class="form-control">
+        <input type="date" name="fecha_sol"  class="form-control" disabled>
       </div>
       <div class="form-group">
         <label for="comentario" class="form-label">Comentario</label>

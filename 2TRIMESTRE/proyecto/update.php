@@ -96,11 +96,11 @@
       </div>
       <div class="form-group">
         <label for="fecha_rev" >Fecha revisión</label>
-        <input type="date" name="fecha_rev" class="form-control" value="<?php echo $fecha_rev  ?>">
+        <input type="date" max="<?php echo date('Y-m-d');?>" min="<?php echo $fecha_alta;?>" name="fecha_rev" class="form-control" value="<?php echo $fecha_rev  ?>">
       </div>
       <div class="form-group">
         <label for="fecha_sol" >Fecha solución</label>
-        <input type="date" name="fecha_sol" class="form-control" value="<?php echo $fecha_sol  ?>">
+        <input type="date" max="<?php echo date('Y-m-d');?>" min="<?php echo $fecha_alta;?>" name="fecha_sol" class="form-control" value="<?php echo $fecha_sol  ?>">
       </div>
       <div class="form-group">
         <label for="comentario" >Comentario</label>

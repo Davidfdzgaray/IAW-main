@@ -68,14 +68,13 @@
                         echo " <td >{$comentario} </td>";
                         echo " </tr> ";
 
-                        if ($fecha_sol == '0000-00-00') {
-                          $total++;
-                          $num_pend++;
+                        if ($fecha_sol == '0000-00-00' && $fecha_rev == '0000-00-00') {
                           echo "<script>document.getElementById('$numero').style.backgroundColor = 'rgba(255,0,0,0.3)'</script>";
                         }
+                        else if ($fecha_sol == '0000-00-00' && $fecha_rev != '0000-00-00') {
+                          echo "<script>document.getElementById('$numero').style.backgroundColor = 'rgba(255,255,0,0.3)'</script>";
+                        }
                         else {
-                          $total++;
-                          $num_res++;
                           echo "<script>document.getElementById('$numero').style.backgroundColor = 'rgba(0,255,0,0.3)'</script>";
                         }
                   }
