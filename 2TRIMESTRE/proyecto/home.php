@@ -108,4 +108,4 @@
   <a href="create.php" class='btn btn-outline-dark mb-2'> <i class="bi bi-person-plus"></i> Añadir incidencia</a><br>
 <div>
 
-<?php include "../footer.php" ?>
+<?php include "footer.php" ?>

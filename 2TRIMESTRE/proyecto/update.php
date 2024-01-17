@@ -116,4 +116,4 @@
       <a href="home.php" class="btn btn-warning mt-5"> Volver </a>
     <div>
 
-<?php include "../footer.php" ?>
+<?php include "footer.php" ?>

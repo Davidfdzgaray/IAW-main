@@ -7,4 +7,4 @@
         echo "<script>window.location='home.php';</script>";
     }
 ?>
-<?php include "../footer.php" ?>
+<?php include "footer.php" ?>

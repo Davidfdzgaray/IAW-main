@@ -95,4 +95,4 @@
   <div class="container text-center mt-5">
     <a href="home.php" class="btn btn-warning mt-5"> Volver </a>
   <div>
-<?php include "../footer.php" ?>
+<?php include "footer.php" ?>
