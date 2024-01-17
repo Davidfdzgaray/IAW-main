@@ -72,7 +72,10 @@
                     echo "</td>";
                     echo " <td >{$comentario} </td>";
                     echo " <td class='text-center'> <a href='view.php?incidencia_id={$id}' class='btn btn-primary'> <i class='bi bi-eye'></i> Ver</a> </td>";
-                    echo " <td class='text-center' > <a href='update.php?editar&incidencia_id={$id}' class='btn btn-secondary'><i class='bi bi-pencil'></i> Editar</a> </td>";
+                    echo " <td class='text-center' >";
+                    if ($fecha_sol == '0000-00-00' || $fecha_rev == '0000-00-00') {
+                      echo "<a href='update.php?editar&incidencia_id={$id}' class='btn btn-secondary'><i class='bi bi-pencil'></i> Editar</a> </td>";
+                    }
                     echo " <td class='text-center'>  <a href='delete.php?eliminar={$id}' class='btn btn-danger'> <i class='bi bi-trash'></i> Eliminar</a> </td>";
                     echo " </tr> ";
 
@@ -86,7 +89,7 @@
                       $num_pend++;
                       echo "<script>document.getElementById('$numero').style.backgroundColor = 'rgba(255,255,0,0.3)'</script>";
                     }
-                    else {
+                    else if ($fecha_sol != '0000-00-00' && $fecha_rev != '0000-00-00') {
                       $total++;
                       $num_res++;
                       echo "<script>document.getElementById('$numero').style.backgroundColor = 'rgba(0,255,0,0.3)'</script>";
