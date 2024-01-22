@@ -18,7 +18,7 @@
       </li>
     </ul>
     <span class="navbar-text">
-      Sesión Iniciada Como: <?php echo $_SESSION["usuario"]; ?>
+      <img src="./media/3289576_user_icon.png" width="20" height="20"  alt=""> <?php echo $_SESSION["usuario"]; ?>
     </span>
   </div>
 </nav>
