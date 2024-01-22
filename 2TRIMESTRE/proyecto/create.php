@@ -16,7 +16,7 @@
         <a class="nav-link active" style="color: black;" aria-current="page" href="view2.php">Ver Incidencias</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" style="color: black;" aria-current="page" href="login.php">Cerrar Sesión</a>
+        <a class="nav-link active" style="color: black;" aria-current="page" href="logout.php">Cerrar Sesión</a>
       </li>
     </ul>
     <span class="navbar-text">
