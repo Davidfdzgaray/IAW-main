@@ -70,7 +70,7 @@
     <form action="" method="post">
       <div class="form-group">
         <label for="planta" >Planta</label>
-        <select name="planta" class="form-control" size="1">
+        <select name="planta" class="form-control" size="1" disabled>
             <option value='Primera Planta' <?php if ($planta=='Primera Planta') echo 'selected'; ?>>Primera Planta</option>
             <option value='Segunda Planta' <?php if ($planta=='Segunda Planta') echo 'selected'; ?>>Segunda Planta</option>
             <option value='Tercera Planta' <?php if ($planta=='Tercera Planta') echo 'selected'; ?>>Tercera Planta</option>
@@ -78,7 +78,7 @@
       </div>
       <div class="form-group">
         <label for="aula" >Aula</label>
-        <select name="aula" class="form-control" size="1">
+        <select name="aula" class="form-control" size="1" disabled>
             <option value='Aula 1' <?php if ($aula=='Aula 1') echo 'selected'; ?>>Aula 1</option>
             <option value='Aula 2' <?php if ($aula=='Aula 2') echo 'selected'; ?>>Aula 2</option>
             <option value='Aula 3' <?php if ($aula=='Aula 3') echo 'selected'; ?>>Aula 3</option>
@@ -96,7 +96,7 @@
       </div>
       <div class="form-group">
         <label for="fecha_rev" >Fecha revisión</label>
-        <input type="date" max="<?php echo date('Y-m-d');?>" min="<?php echo $fecha_alta;?>" name="fecha_rev" class="form-control" value="<?php echo $fecha_rev  ?>">
+        <input type="date" <?php if ($fecha_rev != '0000-00-00') echo 'disabled';?> max="<?php echo date('Y-m-d');?>" min="<?php echo $fecha_alta;?>" name="fecha_rev" class="form-control" value="<?php echo $fecha_rev  ?>">
       </div>
       <div class="form-group">
         <label for="fecha_sol" >Fecha solución</label>
