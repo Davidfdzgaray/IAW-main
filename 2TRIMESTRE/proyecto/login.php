@@ -1,6 +1,5 @@
 <?php include_once "header.php" ?>
 <?php
-    session_start();
     if (isset($_POST['iniciosesion'])) {
         $usuario= htmlspecialchars($_POST["usuario"]);
         $contrasena= htmlspecialchars($_POST["contrasena"]);
@@ -18,7 +17,6 @@
                 }
                 else {
                     header("location: home.php");
-                    //echo "<script>window.location='home.php';</script>"; 
                 }
             }
             else {

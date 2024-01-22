@@ -1,14 +1,9 @@
+<?php include_once "header.php"; ?>
 <?php
-  session_start();
-  $usuario = $_SESSION['usuario'];
   if ($_SESSION["usuario"]=="") {
-    header("location: login.php");  
-  }
-  else{
-    $usuario = $_SESSION["usuario"];
+    echo "<script>window.location='login.php';</script>";   
   }
 ?>
-<?php include_once "header.php"; ?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <ul class="navbar-nav me-auto mb-2">
@@ -19,11 +14,11 @@
         <a class="nav-link active" style="color: black;" aria-current="page" href="view2.php">Ver Incidencias</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" style="color: black;" aria-current="page" href="index.php?fin=1">Cerrar Sesión</a>
+        <a class="nav-link active" style="color: black;" aria-current="page" href="login.php">Cerrar Sesión</a>
       </li>
     </ul>
     <span class="navbar-text">
-      Sesión Iniciada Como: <?php echo $usuario; ?>
+      Sesión Iniciada Como: <?php echo $_SESSION["usuario"]; ?>
     </span>
   </div>
 </nav>

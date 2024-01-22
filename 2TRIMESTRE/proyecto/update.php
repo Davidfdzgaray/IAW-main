@@ -2,7 +2,7 @@
 <?php include "header.php" ?>
 <?php
   if ($_SESSION["usuario"]=="") {
-    //echo "<script>window.location='login.php';</script>"; 
+    echo "<script>window.location='login.php';</script>"; 
   }
 ?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -15,7 +15,7 @@
         <a class="nav-link active" style="color: black;" aria-current="page" href="view2.php">Ver Incidencias</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" style="color: black;" aria-current="page" href="../index.php">Cerrar Sesión<?php session_destroy();?></a>
+        <a class="nav-link active" style="color: black;" aria-current="page" href="login.php">Cerrar Sesión</a>
       </li>
     </ul>
     <span class="navbar-text">
