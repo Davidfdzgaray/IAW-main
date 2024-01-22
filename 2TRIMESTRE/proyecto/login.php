@@ -1,5 +1,6 @@
-<?php include "header.php" ?>
-<?php 
+<?php include_once "header.php" ?>
+<?php
+    session_start();
     if (isset($_POST['iniciosesion'])) {
         $usuario= htmlspecialchars($_POST["usuario"]);
         $contrasena= htmlspecialchars($_POST["contrasena"]);
@@ -12,12 +13,12 @@
             if ($codificada == $row["password"]){ 
                 // Guardar datos de sesión
                 $_SESSION['usuario']=$usuario;
-                
                 if ($usuario=='admin') {
-                    echo "<script>window.location='admin.php';</script>"; 
+                    header("location: admin.php");
                 }
                 else {
-                    echo "<script>window.location='home.php';</script>"; 
+                    header("location: home.php");
+                    //echo "<script>window.location='home.php';</script>"; 
                 }
             }
             else {

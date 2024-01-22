@@ -1,4 +1,11 @@
-<?php include "header.php" ?>
+<?php
+    session_start();
+    echo $_GET["fin"];
+    if ($_GET["fin"])
+        session_destroy();
+?>
+<?php include_once "header.php" ?>
+
 <div class="container mt-5">
     <h1 class="text-center"> Gestión simple de incidencias</h1>
         <p class="text-center">
@@ -12,4 +19,4 @@
     </form>
   </div>
 </div>
-<?php include "footer.php" ?>
+<?php include_once "footer.php" ?>
