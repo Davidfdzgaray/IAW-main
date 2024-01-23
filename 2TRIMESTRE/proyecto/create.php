@@ -35,14 +35,14 @@
     $fecha_rev = htmlspecialchars($_POST['fecha_rev']);
     $fecha_sol = htmlspecialchars($_POST['fecha_sol']);
 
-    //$username = $_SESSION["usuario"];
-    //$query="SELECT * FROM usuarios WHERE username = $username";  
-    //$vista_usuarios= mysqli_query($conn,$query);            
+    $username = $_SESSION["usuario"];
+    $query="SELECT * FROM usuarios WHERE username = '$username'";  
+    $vista_usuarios= mysqli_query($conn,$query);            
 
-    //while($row = mysqli_fetch_assoc($vista_usuarios))
-    //{
-    //  $id = $row['id'];  
-    //}
+    while($row = mysqli_fetch_assoc($vista_usuarios))
+    {
+      $id = $row['id'];  
+    }
      
     $sql= "INSERT INTO incidencias (id_usuario, planta, aula, descripcion, fecha_alta, fecha_rev, fecha_sol, comentario) VALUES ('$id','$planta','$aula','$descripcion','$fecha_alta','$fecha_rev','$fecha_sol','$comentario')";
 
