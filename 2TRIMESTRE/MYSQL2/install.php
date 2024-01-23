@@ -1,6 +1,5 @@
 <?php
   include "db.php";
-  include ".";
 
   // sql to create table
   $sql = "CREATE TABLE usuarios (
