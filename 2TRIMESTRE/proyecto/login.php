@@ -1,5 +1,9 @@
 <?php include_once "header.php" ?>
 <?php
+    if ($_SESSION["usuario"]!="") {
+        echo "<script>window.location='home.php';</script>"; 
+    }
+
     if (isset($_POST['iniciosesion'])) {
         $usuario= htmlspecialchars($_POST["usuario"]);
         $contrasena= htmlspecialchars($_POST["contrasena"]);
@@ -44,6 +48,8 @@
 
             if ($conn->query($sql) == TRUE) {
                 echo "<script>alert('Usuario añadido correctamente.')</script>";
+                $_SESSION['usuario']=$usuario;
+                header("location: home.php");
             } 
             else {
                 echo "<script>alert('Error en la creación del usuario.')</script>";
