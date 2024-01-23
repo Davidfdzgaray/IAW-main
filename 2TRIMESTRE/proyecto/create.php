@@ -34,8 +34,17 @@
     $comentario = htmlspecialchars($_POST['comentario']);
     $fecha_rev = htmlspecialchars($_POST['fecha_rev']);
     $fecha_sol = htmlspecialchars($_POST['fecha_sol']);
-  
-    $sql= "INSERT INTO incidencias (planta, aula, descripcion, fecha_alta, fecha_rev, fecha_sol, comentario) VALUES ('$planta','$aula','$descripcion','$fecha_alta','$fecha_rev','$fecha_sol','$comentario')";
+
+    //$username = $_SESSION["usuario"];
+    //$query="SELECT * FROM usuarios WHERE username = $username";  
+    //$vista_usuarios= mysqli_query($conn,$query);            
+
+    //while($row = mysqli_fetch_assoc($vista_usuarios))
+    //{
+    //  $id = $row['id'];  
+    //}
+     
+    $sql= "INSERT INTO incidencias (id_usuario, planta, aula, descripcion, fecha_alta, fecha_rev, fecha_sol, comentario) VALUES ('$id','$planta','$aula','$descripcion','$fecha_alta','$fecha_rev','$fecha_sol','$comentario')";
 
     if ($conn->query($sql) == TRUE) {
       echo "<script type='text/javascript'>alert('¡Incidencia añadida con éxito!')</script>";
