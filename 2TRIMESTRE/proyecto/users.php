@@ -1,9 +1,9 @@
 <!-- Header -->
 <?php include "header.php" ?>
 <?php 
-    if ($_SESSION["usuario"]=="") {
-      echo "<script>window.location='login.php';</script>"; 
-    }
+  if ($_SESSION["usuario"]!='admin') {
+    header("Location: home.php");
+  }
 ?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">

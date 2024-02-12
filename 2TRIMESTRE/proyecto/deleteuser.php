@@ -1,7 +1,8 @@
 <?php include "header.php" ?>
 <?php 
-    if ($_SESSION["usuario"]=="") {
-        echo "<script>window.location='login.php';</script>"; 
+    if ($_SESSION["usuario"]!='admin') {
+        header("Location: home.php");
+        exit();
     }
 
     if(isset($_GET['eliminarusuario'])) {
@@ -15,4 +16,3 @@
         echo "<script>window.location='users.php';</script>";
     }
 ?>
-<?php include "footer.php" ?>

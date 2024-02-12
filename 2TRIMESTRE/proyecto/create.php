@@ -1,8 +1,9 @@
 <!-- Header -->
 <?php include "header.php" ?>
 <?php
-  if ($_SESSION["usuario"]=="") {
-    echo "<script>window.location='login.php';</script>"; 
+  if (!isset($_SESSION["usuario"]) || empty($_SESSION["usuario"])) {
+    header("Location: login.php");
+    exit();
   }
   $fecha_hoy = date("Y-m-d");
 ?>

@@ -1,6 +1,5 @@
 <?php include "header.php" ?>
 <?php 
     session_destroy();
-    echo "<script>window.location='home.php';</script>"; 
+    header("Location: login.php");
 ?>
-<?php include "footer.php" ?>
