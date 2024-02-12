@@ -1,5 +1,9 @@
 <?php include "header.php" ?>
 <?php 
+    if ($_SESSION["usuario"]=="") {
+        echo "<script>window.location='login.php';</script>"; 
+    }
+
     if(isset($_GET['eliminarusuario'])) {
         $id= htmlspecialchars($_GET['eliminarusuario']);
         $query = "DELETE FROM usuarios WHERE id = {$id}"; 

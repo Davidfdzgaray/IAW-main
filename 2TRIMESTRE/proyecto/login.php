@@ -1,6 +1,6 @@
 <?php include_once "header.php" ?>
 <?php
-    if ($_SESSION["usuario"]!="") {
+    if ($_SESSION["usuario"]=="") {
         echo "<script>window.location='home.php';</script>"; 
     }
 

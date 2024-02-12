@@ -1,7 +1,7 @@
 <?php include_once "header.php"; ?>
 <?php
   if ($_SESSION["usuario"]=="") {
-    echo "<script>window.location='login.php';</script>";   
+    echo "<script>window.location='login.php';</script>"; 
   }
 ?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">

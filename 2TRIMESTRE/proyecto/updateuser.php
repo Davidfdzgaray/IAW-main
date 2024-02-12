@@ -1,8 +1,8 @@
 <!-- Header -->
 <?php include "header.php" ?>
 <?php 
-    if ($_SESSION["usuario"]!='admin') {
-        echo "<script>window.location='home.php';</script>"; 
+    if ($_SESSION["usuario"]=="") {
+      echo "<script>window.location='login.php';</script>"; 
     }
 ?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
