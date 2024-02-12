@@ -1,10 +1,20 @@
-<!-- Header -->
 <?php include "header.php" ?>
 <?php 
   if ($_SESSION["usuario"]!='admin') {
     header("Location: home.php");
   }
 ?>
+<script>
+    function confirmarEliminacion(id) {
+      var confirmacion = confirm('¿Estás seguro de que deseas eliminar este usuario?');
+      if (confirmacion) {
+          // Si el usuario confirma, redirigir a eliminar_usuario.php con el ID del usuario
+          window.location = 'deleteuser.php?eliminarusuario=' + id;
+      } else {
+          // Si el usuario cancela, no hacer nada
+      }
+    }
+</script>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <ul class="navbar-nav me-auto mb-2">
@@ -36,8 +46,7 @@
         </tr>  
       </thead>
         <tbody>
-          <tr>
-               
+          <tr>    
             <?php
               $query="SELECT * FROM usuarios";  
               $vista_usuarios= mysqli_query($conn,$query);            
@@ -55,7 +64,7 @@
                   echo " <td > {$usuario}</td>";
                   echo " <td > {$contrasena}</td>";
                   //ELIMINAR
-                  echo " <td class='text-center'>  <a href='deleteuser.php?eliminarusuario={$id}' class='btn btn-danger'> <i class='bi bi-trash'></i> Eliminar</a> </td>";
+                  echo " <td class='text-center'>  <a onclick=\"confirmarEliminacion($id)\" class='btn btn-danger'> <i class='bi bi-trash'></i> Eliminar</a> </td>";
                   //MODIFICAR
                   echo " <td class='text-center'> <a href='updateuser.php?editarusuario&usuario_id={$id}' class='btn btn-secondary'><i class='bi bi-pencil'></i> Editar</a> </td>";
                   echo " </tr> ";
@@ -66,5 +75,3 @@
         </tbody>
     </table>
   </div>
-
-<?php include "footer.php" ?>

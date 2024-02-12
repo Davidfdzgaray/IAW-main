@@ -13,3 +13,10 @@
   </div>
 </div>
 <?php include_once "footer.php" ?>
+
+<?php 
+/*AÑADIR*/
+/* Crea un panel de administración que permitirá añadir usuarios. 
+Los usuarios podrán tener distintos perfiles: dirección, profesorado y administradores.
+Solo los usuarios iniciales (pacomaestre, joseluisnunez, josecarlosgarcia) podrán acceder al panel de administración.*/
+?>
