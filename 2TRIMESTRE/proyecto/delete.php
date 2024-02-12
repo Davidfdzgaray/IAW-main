@@ -1,5 +1,9 @@
 <?php include "header.php" ?>
-<?php 
+<?php
+    if ($_SESSION["usuario"]=="") {
+        echo "<script>window.location='login.php';</script>"; 
+    }
+
     if(isset($_GET['eliminar'])) {
         $id= htmlspecialchars($_GET['eliminar']);
         $query = "DELETE FROM incidencias WHERE id = {$id}"; 
