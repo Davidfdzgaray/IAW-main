@@ -61,11 +61,11 @@
   <div class="container ">
     <form action="" method="post">
       <div class="form-group">
-        <label for="usuario" >Usuario</label>
+        <label for="usuario" >Modificar Nombre de Usuario:</label>
         <input type="text" name="usuario" class="form-control" value="<?php echo $usuario  ?>">
       </div>
       <div class="form-group">
-        <label for="contrasena" >Contraseña</label>
+        <label for="contrasena" >Modificar Contraseña:</label>
         <input type="text" name="contrasena" class="form-control">
       </div>
       
