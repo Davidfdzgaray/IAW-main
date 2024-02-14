@@ -1,5 +1,11 @@
 <?php include_once "header.php" ?>
 <?php
+  if (isset($_SESSION["usuario"])) {
+    header("Location: home.php");
+    exit();
+  }
+?>
+<?php
     if (isset($_POST['iniciosesion'])) {
         $usuario= htmlspecialchars($_POST["usuario"]);
         $contrasena= htmlspecialchars($_POST["contrasena"]);
