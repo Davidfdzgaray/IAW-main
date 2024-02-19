@@ -43,32 +43,44 @@
           $rol = $row['role'];   
         }
  
-    if(isset($_POST['editarusuario'])) 
-    {
+    if(isset($_POST['editarusuario'])) {
       $usuario = htmlspecialchars($_POST['usuario']);
       $contrasena = htmlspecialchars($_POST['contrasena']);
       $codificada = base64_encode($contrasena);
       $contrasena_antigua_usu = htmlspecialchars($_POST['contrasena_antigua_usu']);
       $roln = htmlspecialchars($_POST['rol']);
 
-      if  ($contrasena == "" || $usuario == "" || $contrasena_antigua_usu == ""){
-        echo '<script type="text/javascript"> alert("No se admiten vacios")</script>';
-      } else {
-          if  ($contrasena_antigua_usu != $contrasena_antigua) {
-            echo '<script type="text/javascript"> alert("La contraseña actual es errónea")</script>';
+      if ($contrasena == "" && $contrasena_antigua_usu == "" && $usuario != "" && $roln != "") {
+        $query = "UPDATE usuarios SET username = '{$usuario}' , role = '{$roln}' WHERE id = {$id}";
+          
+        $usuario_actualizada = mysqli_query($conn, $query);
+        if (!$usuario_actualizada) {
+          echo "Se ha producido un error al actualizar el usuario.";
+        }
+        else {
+          echo "<script type='text/javascript'>alert('¡Datos de usuario actualizados!')</script>";
+          echo "<script>window.location='users.php';</script>";
+        }
+      } else { 
+          if  ($contrasena == "" || $usuario == "" || $contrasena_antigua_usu == ""){
+            echo '<script type="text/javascript"> alert("No se admiten vacios")</script>';
           } else {
-            $query = "UPDATE usuarios SET username = '{$usuario}' , password = '{$codificada}' , role = '{$roln}' WHERE id = {$id}";
-        
-            $usuario_actualizada = mysqli_query($conn, $query);
-            if (!$usuario_actualizada) {
-              echo "Se ha producido un error al actualizar el usuario.";
-            }
-            else {
-              echo "<script type='text/javascript'>alert('¡Datos de usuario actualizados!')</script>";
-              echo "<script>window.location='users.php';</script>";
+            if  ($contrasena_antigua_usu != $contrasena_antigua) {
+              echo '<script type="text/javascript"> alert("La contraseña actual es errónea")</script>';
+            } else {
+              $query = "UPDATE usuarios SET username = '{$usuario}' , password = '{$codificada}' , role = '{$roln}' WHERE id = {$id}";
+          
+              $usuario_actualizada = mysqli_query($conn, $query);
+              if (!$usuario_actualizada) {
+                echo "Se ha producido un error al actualizar el usuario.";
+              }
+              else {
+                echo "<script type='text/javascript'>alert('¡Datos de usuario actualizados!')</script>";
+                echo "<script>window.location='users.php';</script>";
+              }
             }
           }
-      }
+        }
     }             
 ?>
 
