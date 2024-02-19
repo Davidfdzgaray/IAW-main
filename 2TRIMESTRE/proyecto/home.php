@@ -14,7 +14,7 @@
       <li class="nav-item">
         <a class="nav-link active" style="color: black;" aria-current="page" href="view2.php">Ver Incidencias</a>
       </li>
-      <li class="nav-item" <?php if ($_SESSION["usuario"]!="admin") echo 'hidden';?>>
+      <li class="nav-item" <?php if ($_SESSION['rol']!='administrador') echo 'hidden';?>>
         <a class="nav-link active" style="color: black;" aria-current="page" href="users.php">Administrar Usuarios</a>
       </li>
       <li class="nav-item">

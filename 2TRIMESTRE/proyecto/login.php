@@ -16,9 +16,11 @@
         if($row = $result->fetch_assoc()){
             //Si el usuario es correcto ahora validamos su contraseña
             if ($codificada == $row["password"]){ 
+                $rol=$row["role"];
                 // Guardar datos de sesión
                 $_SESSION['usuario']=$usuario;
-                if ($usuario=='admin') {
+                $_SESSION['rol']=$rol;
+                if ($_SESSION['rol']=='administrador') {
                     header("location: admin.php");
                 }
                 else {
@@ -39,6 +41,7 @@
         $usuario= htmlspecialchars($_POST["usuario"]);
         $contrasena= htmlspecialchars($_POST["contrasena"]);
         $codificada = base64_encode($contrasena);
+        $roln='usuario';
 
         $result = $conn->query("SELECT * FROM usuarios WHERE username = '$usuario'");
 
@@ -46,11 +49,12 @@
             echo "<script>alert('Este usuario ya existe.')</script>";
         }
         else {
-            $sql = "INSERT INTO usuarios (username, password) VALUES ('$usuario', '$codificada')";
+            $sql = "INSERT INTO usuarios (username, password, role) VALUES ('$usuario', '$codificada', '$roln')";
 
             if ($conn->query($sql) == TRUE) {
                 echo "<script>alert('Usuario añadido correctamente.')</script>";
                 $_SESSION['usuario']=$usuario;
+                $_SESSION['rol']=$roln;
                 header("location: home.php");
             } 
             else {

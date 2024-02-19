@@ -1,4 +1,3 @@
-<!-- Header -->
 <?php include "header.php" ?>
 <?php
   if (!isset($_SESSION["usuario"]) || empty($_SESSION["usuario"])) {

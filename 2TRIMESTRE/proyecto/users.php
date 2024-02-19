@@ -1,6 +1,6 @@
 <?php include "header.php" ?>
 <?php 
-  if ($_SESSION["usuario"]!='admin') {
+  if ($_SESSION['rol']!='administrador') {
     header("Location: home.php");
   }
 ?>

@@ -1,7 +1,7 @@
 <!-- Header -->
 <?php include "header.php" ?>
 <?php 
-  if ($_SESSION["usuario"]!='admin') {
+  if ($_SESSION['rol']!='administrador') {
     header("Location: home.php");
     exit();
   }
@@ -10,7 +10,7 @@
   <div class="container-fluid">
     <ul class="navbar-nav me-auto mb-2">
       <li class="nav-item">
-        <a class="nav-link active" style="color: black;" aria-current="page" href="admin.php">Inicio</a>
+        <a class="nav-link active" style="color: black;" aria-current="page" href="users.php">Inicio</a>
       </li>
       <li class="nav-item">
         <a class="nav-link active" style="color: black;" aria-current="page" href="view2.php">Ver Incidencias</a>
