@@ -42,6 +42,7 @@
               <th scope="col">ID</th>
               <th  scope="col">Nombre de Usuario</th>
               <th  scope="col">Contraseña</th>
+              <th  scope="col">Rol</th>
               <th  scope="col" colspan="2" class="text-center">Operaciones</th>
         </tr>  
       </thead>
@@ -55,14 +56,15 @@
               {
                 $id = $row['id'];                
                 $usuario = $row['username'];        
-                $contrasena = $row['password'];   
+                $contrasena = $row['password'];
+                $rol = $row['role'];
 
-                if ($usuario!='admin') {
-                
+                if ($usuario!=$_SESSION['usuario']) {
                   echo "<tr>";
                   echo " <td >{$id}</td>";
                   echo " <td > {$usuario}</td>";
                   echo " <td > {$contrasena}</td>";
+                  echo " <td > {$rol}</td>";
                   //ELIMINAR
                   echo " <td class='text-center'>  <a onclick=\"confirmarEliminacion($id)\" class='btn btn-danger'> <i class='bi bi-trash'></i> Eliminar</a> </td>";
                   //MODIFICAR
