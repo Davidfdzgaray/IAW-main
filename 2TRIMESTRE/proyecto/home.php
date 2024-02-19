@@ -77,9 +77,14 @@
                     echo " <td class='text-center'> <a href='view.php?incidencia_id={$id}' class='btn btn-primary'> <i class='bi bi-eye'></i> Ver</a> </td>";
                     echo " <td class='text-center' >";
                     if ($fecha_sol == '0000-00-00' || $fecha_rev == '0000-00-00') {
-                      echo "<a href='update.php?editar&incidencia_id={$id}' class='btn btn-secondary'><i class='bi bi-pencil'></i> Editar</a> </td>";
+                      if ($_SESSION["rol"] != 'usuario') {
+                        echo "<a href='update.php?editar&incidencia_id={$id}' class='btn btn-secondary'><i class='bi bi-pencil'></i> Editar</a> </td>";
+                    
+                      }
                     }
-                    echo " <td class='text-center'>  <a href='delete.php?eliminar={$id}' class='btn btn-danger'> <i class='bi bi-trash'></i> Eliminar</a> </td>";
+                    if ($_SESSION["rol"] != 'usuario') {
+                      echo " <td class='text-center'>  <a href='delete.php?eliminar={$id}' class='btn btn-danger'> <i class='bi bi-trash'></i> Eliminar</a> </td>";
+                    }
                     echo " </tr> ";
 
                     if ($fecha_sol == '0000-00-00' && $fecha_rev == '0000-00-00') {

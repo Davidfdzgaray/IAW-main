@@ -17,12 +17,6 @@
 <?php 
 /*AÑADIR*/
 /* 
-Crea un panel de administración que permitirá añadir usuarios. 
-Los usuarios podrán tener distintos perfiles: dirección, profesorado y administradores.
-
-Solo los usuarios iniciales (pacomaestre, joseluisnunez, josecarlosgarcia) podrán acceder al panel de administración.
-
-Los administradores podrán eliminar otros usuarios del sistema
 
 Solo los usuarios administradores y dirección podrán eliminar incidencias o modificar incidencias. 
 
