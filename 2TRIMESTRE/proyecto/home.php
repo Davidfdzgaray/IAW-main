@@ -3,7 +3,17 @@
   if (!isset($_SESSION["usuario"]) || empty($_SESSION["usuario"])) {
     header("Location: login.php");
     exit();
-}
+  }
+
+  $username =  $_SESSION['usuario'];
+  $query="SELECT * FROM usuarios WHERE username = '{$username}'"; 
+  $vista_usuarios= mysqli_query($conn,$query);            
+
+  while($row = mysqli_fetch_assoc($vista_usuarios))
+  {
+    $date = $row['last_date'];
+    $time = $row['last_time'];
+  }
 ?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
@@ -22,7 +32,8 @@
       </li>
     </ul>
     <span class="navbar-text" style="color: black;">
-      <img src="./media/3289576_user_icon.png" width="20" height="20" alt=""> <?php echo $_SESSION["usuario"]; ?>
+      <img src="./media/3289576_user_icon.png" width="20" height="20" alt=""> <?php echo $_SESSION["usuario"];?><br>
+      <?php echo "Ultima conexión: " . $date . " " . $time;?>
     </span>
   </div>
 </nav>

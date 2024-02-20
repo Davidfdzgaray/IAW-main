@@ -1,6 +1,7 @@
 <?php include "header.php" ?>
 <?php 
-    $date = date("d") . " de " . date("m") . " de " . date("Y");
+    date_default_timezone_set("Europe/Madrid");
+    $date = date("d") . "/" . date("m") . "/" . date("Y");
     $time = date("H") . ":" . date("i");
     $username =  $_SESSION['usuario'];
 
