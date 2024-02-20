@@ -14,6 +14,12 @@
     $date = $row['last_date'];
     $time = $row['last_time'];
   }
+
+  if ($date == "" && $time  ==  "") {
+    date_default_timezone_set("Europe/Madrid");
+    $date = date("d") . "/" . date("m") . "/" . date("Y");
+    $time = date("H") . ":" . date("i");
+  }
 ?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
