@@ -13,16 +13,3 @@
   </div>
 </div>
 <?php include_once "footer.php" ?>
-
-<?php 
-/*AÑADIR*/
-/* 
-
-Solo los usuarios administradores y dirección podrán eliminar incidencias o modificar incidencias. 
-
-El resto de usuarios, profesorado, tan solo podrá añadir incidencias o consultarlas.
-
-Al resolver una incidencia se enviará un correo electrónico a la dirección del usuario que la dio de alta(añade email como campo a la tabla usuarios) comunicándole que ha sido resuelta. 
-
-Esta incidencia no se borra del sistema pero ya no se mostrará en pantalla al consultar las incidencias abiertas.
-*/ ?>
