@@ -36,33 +36,6 @@
         }
         $conn->close();
     }
-
-    if (isset($_POST['crearusuario'])) {
-        $usuario= htmlspecialchars($_POST["usuario"]);
-        $contrasena= htmlspecialchars($_POST["contrasena"]);
-        $codificada = base64_encode($contrasena);
-        $roln='usuario';
-
-        $result = $conn->query("SELECT * FROM usuarios WHERE username = '$usuario'");
-
-        if ($row = $result->fetch_assoc()) {
-            echo "<script>alert('Este usuario ya existe.')</script>";
-        }
-        else {
-            $sql = "INSERT INTO usuarios (username, password, role) VALUES ('$usuario', '$codificada', '$roln')";
-
-            if ($conn->query($sql) == TRUE) {
-                echo "<script>alert('Usuario añadido correctamente.')</script>";
-                $_SESSION['usuario']=$usuario;
-                $_SESSION['rol']=$roln;
-                header("location: home.php");
-            } 
-            else {
-                echo "<script>alert('Error en la creación del usuario.')</script>";
-            }
-        }    
-        $conn->close();
-    }
 ?>
 <div class="container mt-5">
     <h1 class="text-center">Inicio de Sesión</h1>
@@ -79,7 +52,6 @@
             <input type="password" name="contrasena" id="contrasena" required><br><br>
 
             <input type="submit" name='iniciosesion' class="btn btn-primary mt-2" value="Iniciar Sesión">
-            <input type="submit" name='crearusuario' class="btn btn-primary mt-2" value="Crear Usuario">
         </div>
     </form>
   </div>

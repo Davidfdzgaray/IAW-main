@@ -3,6 +3,23 @@
   if ($_SESSION['rol']!='administrador') {
     header("Location: home.php");
   }
+
+  $username =  $_SESSION['usuario'];
+  $query="SELECT * FROM usuarios WHERE username = '{$username}'"; 
+  $vista_usuarios= mysqli_query($conn,$query);            
+
+  while($row = mysqli_fetch_assoc($vista_usuarios))
+  {
+    $date = $row['last_date'];
+    $time = $row['last_time'];
+    $ip = $row['IP'];
+  }
+
+  if ($date == "" && $time  ==  "") {
+    date_default_timezone_set("Europe/Madrid");
+    $date = date("d") . "/" . date("m") . "/" . date("Y");
+    $time = date("H") . ":" . date("i");
+  }
 ?>
 <script>
     function confirmarEliminacion(id) {
@@ -43,6 +60,7 @@
               <th  scope="col">Nombre de Usuario</th>
               <th  scope="col">Contraseña</th>
               <th  scope="col">Rol</th>
+              <th  scope="col">Nº Incidencias</th>
               <th  scope="col" colspan="2" class="text-center">Operaciones</th>
         </tr>  
       </thead>
@@ -59,12 +77,30 @@
                 $contrasena = $row['password'];
                 $rol = $row['role'];
 
-                if ($usuario!=$_SESSION['usuario']) {
+                /*N INCIDENCIAS*/
+                $queryi="SELECT * FROM incidencias";               
+                $vista_incidencias= mysqli_query($conn,$queryi);
+
+                while($row= mysqli_fetch_assoc($vista_incidencias)){
+                $idusuario = $row['id_usuario']; 
+                  
+                  if ($idusuario == $id) {
+                    $sql = "SELECT id FROM incidencias WHERE id_usuario = {$idusuario}";
+                    if ($result=mysqli_query($conn,$sql)) {
+                      $rowcount=mysqli_num_rows($result);
+                      $nincidencias = $rowcount; 
+                    }
+                  } 
+                }
+                /**/ 
+
+                  if ($usuario!=$_SESSION['usuario']) {
                   echo "<tr>";
                   echo " <td >{$id}</td>";
                   echo " <td > {$usuario}</td>";
                   echo " <td > {$contrasena}</td>";
                   echo " <td > {$rol}</td>";
+                  echo " <td > {$nincidencias}</td>";
                   //ELIMINAR
                   echo " <td class='text-center'>  <a onclick=\"confirmarEliminacion($id)\" class='btn btn-danger'> <i class='bi bi-trash'></i> Eliminar</a> </td>";
                   //MODIFICAR
@@ -74,6 +110,10 @@
               }
             ?>
           </tr>  
+          <div class="container text-center mt-5">
+            <a href='create_user.php' class='btn btn-outline-dark mb-2'> <i class="bi bi-person-plus"></i> Añadir Usuario</a><br>
+          <div>
         </tbody>
     </table>
   </div>
+  <?php include "footer.php" ?>

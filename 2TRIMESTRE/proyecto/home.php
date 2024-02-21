@@ -13,6 +13,7 @@
   {
     $date = $row['last_date'];
     $time = $row['last_time'];
+    $ip = $row['IP'];
   }
 
   if ($date == "" && $time  ==  "") {
@@ -37,10 +38,6 @@
         <a class="nav-link active" style="color: black;" aria-current="page" href="logout.php">Cerrar Sesión</a>
       </li>
     </ul>
-    <span class="navbar-text" style="color: black;">
-      <img src="./media/3289576_user_icon.png" width="20" height="20" alt=""> <?php echo $_SESSION["usuario"];?><br>
-      <?php echo "Ultima conexión: " . $date . " " . $time;?>
-    </span>
   </div>
 </nav>
 
@@ -94,12 +91,12 @@
                     echo " <td class='text-center'> <a href='view.php?incidencia_id={$id}' class='btn btn-primary'> <i class='bi bi-eye'></i> Ver</a> </td>";
                     echo " <td class='text-center' >";
                     if ($fecha_sol == '0000-00-00' || $fecha_rev == '0000-00-00') {
-                      if ($_SESSION["rol"] != 'usuario') {
+                      if ($_SESSION["rol"] != 'profesor') {
                         echo "<a href='update.php?editar&incidencia_id={$id}' class='btn btn-secondary'><i class='bi bi-pencil'></i> Editar</a> </td>";
                     
                       }
                     }
-                    if ($_SESSION["rol"] != 'usuario') {
+                    if ($_SESSION["rol"] != 'profesor' && $_SESSION["rol"] != 'direccion') {
                       echo " <td class='text-center'>  <a href='delete.php?eliminar={$id}' class='btn btn-danger'> <i class='bi bi-trash'></i> Eliminar</a> </td>";
                     }
                     echo " </tr> ";

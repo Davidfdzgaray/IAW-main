@@ -102,8 +102,8 @@
       <div class="form-group">
         <label for="rol" >Rol:</label>
         <select name="rol" class="form-control" size="1">
-            <option value='usuario' <?php if ($rol=='usuario') echo 'selected'; ?>>Usuario</option>
-            <option value='profesorado' <?php if ($rol=='profesorado') echo 'selected'; ?>>Profesorado</option>
+            <option value='profesor' <?php if ($rol=='profesor') echo 'selected'; ?>>Profesor</option>
+            <option value='direccion' <?php if ($rol=='direccion') echo 'selected'; ?>>Direccion</option>
             <option value='administrador' <?php if ($rol=='administrador') echo 'selected'; ?>>Administrador</option>
         </select>
       </div>

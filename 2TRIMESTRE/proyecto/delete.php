@@ -5,6 +5,11 @@
         exit();
     }
 
+    if ($_SESSION["rol"] == 'profesor' || $_SESSION["rol"] == 'direccion') {
+        header("Location: home.php");
+        exit();
+      }
+
     if(isset($_GET['eliminar'])) {
         $id= htmlspecialchars($_GET['eliminar']);
         $query = "DELETE FROM incidencias WHERE id = {$id}"; 
