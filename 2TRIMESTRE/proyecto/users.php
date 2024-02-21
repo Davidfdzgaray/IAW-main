@@ -77,7 +77,7 @@
                 $contrasena = $row['password'];
                 $rol = $row['role'];
 
-                /*N INCIDENCIAS*/
+                /*N INCIDENCIAS
                 $queryi="SELECT * FROM incidencias";               
                 $vista_incidencias= mysqli_query($conn,$queryi);
 
@@ -92,7 +92,7 @@
                     }
                   } 
                 }
-                /**/ 
+                */ 
 
                   if ($usuario!=$_SESSION['usuario']) {
                   echo "<tr>";
