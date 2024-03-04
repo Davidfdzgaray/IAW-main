@@ -70,14 +70,20 @@
     
     if(isset($_POST['editar'])) 
     {
-      $planta = htmlspecialchars($_POST['planta']);
-      $aula = htmlspecialchars($_POST['aula']);
-      $descripcion = htmlspecialchars($_POST['descripcion']);
-      $fecha_rev = htmlspecialchars($_POST['fecha_rev']);
-      $fecha_sol = htmlspecialchars($_POST['fecha_sol']);
-      $comentario = htmlspecialchars($_POST['comentario']);
+      $planta1 = htmlspecialchars($_POST['planta']);
+      $aula1 = htmlspecialchars($_POST['aula']);
+      $descripcion1 = htmlspecialchars($_POST['descripcion']);
+      
+      if ($fecha_rev == "0000-00-00") {
+          $fecha_rev = htmlspecialchars($_POST['fecha_rev']);
+      }
 
-      $query = "UPDATE incidencias SET planta = '{$planta}' , aula = '{$aula}' , descripcion = '{$descripcion}', fecha_alta = '{$fecha_alta}', fecha_rev = '{$fecha_rev}', fecha_sol = '{$fecha_sol}', comentario = '{$comentario}' WHERE id = {$id}";
+      $fecha_sol1 = htmlspecialchars($_POST['fecha_sol']);
+      $comentario1 = htmlspecialchars($_POST['comentario']);
+
+      
+      $query = "UPDATE incidencias SET descripcion = '{$descripcion1}', fecha_rev = '{$fecha_rev}', fecha_sol = '{$fecha_sol1}', comentario = '{$comentario1}' WHERE id = {$id}";
+      
       
       $incidencia_actualizada = mysqli_query($conn, $query);
       if (!$incidencia_actualizada)
@@ -119,7 +125,7 @@
       </div>
       <div class="form-group">
         <label for="fecha_rev" >Fecha revisión</label>
-        <input type="date" <?php if ($fecha_rev != '0000-00-00') echo 'disabled';?> max="<?php echo date('Y-m-d');?>" min="<?php echo $fecha_alta;?>" name="fecha_rev" class="form-control" value="<?php echo $fecha_rev  ?>">
+        <input type="date" name="fecha_rev" <?php if ($fecha_rev != '0000-00-00') echo 'disabled';?> max="<?php echo date('Y-m-d');?>" min="<?php echo $fecha_alta;?>" class="form-control" value="<?php echo $fecha_rev;?>">
       </div>
       <div class="form-group">
         <label for="fecha_sol" >Fecha solución</label>
