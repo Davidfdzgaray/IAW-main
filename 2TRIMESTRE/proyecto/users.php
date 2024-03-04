@@ -77,30 +77,23 @@
                 $contrasena = $row['password'];
                 $rol = $row['role'];
 
-                /*N INCIDENCIAS
-                $queryi="SELECT * FROM incidencias";               
-                $vista_incidencias= mysqli_query($conn,$queryi);
-
-                while($row= mysqli_fetch_assoc($vista_incidencias)){
-                $idusuario = $row['id_usuario']; 
-                  
-                  if ($idusuario == $id) {
-                    $sql = "SELECT id FROM incidencias WHERE id_usuario = {$idusuario}";
-                    if ($result=mysqli_query($conn,$sql)) {
-                      $rowcount=mysqli_num_rows($result);
-                      $nincidencias = $rowcount; 
-                    }
-                  } 
-                }
-                */ 
-
-                  if ($usuario!=$_SESSION['usuario']) {
+                
+                if ($usuario!=$_SESSION['usuario']) {
                   echo "<tr>";
                   echo " <td >{$id}</td>";
                   echo " <td > {$usuario}</td>";
                   echo " <td > {$contrasena}</td>";
                   echo " <td > {$rol}</td>";
-                  echo " <td > {$nincidencias}</td>";
+
+                  /*N INCIDENCIAS*/
+                  $queryi="SELECT count(id) FROM incidencias WHERE id_usuario = {$id}";            
+                  $vista_incidencias= mysqli_query($conn,$queryi);
+
+                  while($row= mysqli_fetch_assoc($vista_incidencias)){
+                    $nincidencias=$row['count(id)'];
+                    echo "<td>{$nincidencias}</td>";
+                  }
+
                   //ELIMINAR
                   echo " <td class='text-center'>  <a onclick=\"confirmarEliminacion($id)\" class='btn btn-danger'> <i class='bi bi-trash'></i> Eliminar</a> </td>";
                   //MODIFICAR
