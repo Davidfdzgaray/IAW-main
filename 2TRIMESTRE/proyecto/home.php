@@ -49,9 +49,9 @@
               <th  scope="col">Planta</th>
               <th  scope="col">Aula</th>
               <th  scope="col">Descripción</th>
-              <th  scope="col">Fecha alta</th>
-              <th  scope="col">Fecha revisión</th>
-              <th  scope="col">Fecha solución</th>
+              <th  scope="col"><a href="?ordenar=fecha_alta">Fecha alta</a></th>
+              <th  scope="col"><a href="?ordenar=fecha_rev">Fecha revisión</a></th>
+              <th  scope="col"><a href="?ordenar=fecha_sol">Fecha solución</a></th>
               <th  scope="col">Comentario</th>
               <th  scope="col" colspan="3" class="text-center">Operaciones</th>
             </tr>  
@@ -63,7 +63,14 @@
                   $num_pend=0;
                   $num_res=0;
 
-                  $query="SELECT * FROM incidencias";               
+                  // defecto
+                  $orden = 'fecha_alta';
+
+                  if(isset($_GET['ordenar'])) {
+                    $orden = $_GET['ordenar'];
+                  }
+
+                  $query="SELECT * FROM incidencias ORDER BY {$orden}"; 
                   $vista_incidencias= mysqli_query($conn,$query);
 
                   while($row= mysqli_fetch_assoc($vista_incidencias)){
