@@ -19,7 +19,7 @@
             echo "<script>alert('Este usuario ya existe.')</script>";
         }
         else if ($row = $result2->fetch_assoc()) {
-            echo "<script>alert('Este correo ya se está siendo usado.')</script>";
+            echo "<script>alert('Este correo ya se está siendo usado por otro usuario.')</script>";
         }
         else {
             $sql = "INSERT INTO usuarios (username, password, role, email) VALUES ('$usuario', '$codificada', '$roln', '$email')";
