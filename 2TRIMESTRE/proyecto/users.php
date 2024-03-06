@@ -76,12 +76,13 @@
                 $usuario = $row['username'];        
                 $contrasena = $row['password'];
                 $rol = $row['role'];
-
+                $email = $row['email'];
                 
                 if ($usuario!=$_SESSION['usuario']) {
                   echo "<tr>";
                   echo " <td >{$id}</td>";
                   echo " <td > {$usuario}</td>";
+                  echo " <td > {$email}</td>";
                   echo " <td > {$contrasena}</td>";
                   echo " <td > {$rol}</td>";
 
