@@ -7,17 +7,22 @@
     
     if (isset($_POST['create_user'])) {
         $usuario= htmlspecialchars($_POST["usuario"]);
+        $email= htmlspecialchars($_POST["email"]);
         $contrasena= htmlspecialchars($_POST["contrasena"]);
         $codificada = base64_encode($contrasena);
         $roln='profesor';
 
         $result = $conn->query("SELECT * FROM usuarios WHERE username = '$usuario'");
+        $result2 = $conn->query("SELECT * FROM usuarios WHERE email = '$email'");
 
         if ($row = $result->fetch_assoc()) {
             echo "<script>alert('Este usuario ya existe.')</script>";
         }
+        else if ($row = $result2->fetch_assoc()) {
+            echo "<script>alert('Este correo ya se está siendo usado.')</script>";
+        }
         else {
-            $sql = "INSERT INTO usuarios (username, password, role) VALUES ('$usuario', '$codificada', '$roln')";
+            $sql = "INSERT INTO usuarios (username, password, role, email) VALUES ('$usuario', '$codificada', '$roln', '$email')";
 
             if ($conn->query($sql) == TRUE) {
                 echo "<script>alert('Usuario añadido correctamente.')</script>";
@@ -44,6 +49,9 @@
 
             <label for="contrasena">Contraseña:</label><br>
             <input type="password" name="contrasena" id="contrasena" required><br><br>
+
+            <label for="email">Correo Eléctronico:</label><br>
+            <input type="email" name="email" id="email" required><br><br>
 
             <input type="submit" name='create_user' class="btn btn-primary mt-2" value="Crear Usuario">
         </div>
