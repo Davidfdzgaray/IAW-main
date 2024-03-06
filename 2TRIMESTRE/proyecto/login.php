@@ -12,9 +12,28 @@
         $codificada = base64_encode($contrasena);
 
         $result = $conn->query("SELECT * FROM usuarios WHERE username = '$usuario'");
+        $result2 = $conn->query("SELECT * FROM usuarios WHERE email = '$usuario'");
 
         if($row = $result->fetch_assoc()){
             //Si el usuario es correcto ahora validamos su contraseña
+            if ($codificada == $row["password"]){ 
+                $rol=$row["role"];
+                // Guardar datos de sesión
+                $_SESSION['usuario']=$usuario;
+                $_SESSION['rol']=$rol;
+                if ($_SESSION['rol']=='administrador') {
+                    header("location: admin.php");
+                }
+                else {
+                    header("location: home.php");
+                }
+            }
+            else {
+                echo "<script>alert('Contraseña incorrecta')</script>";
+            }
+        }
+        else if($row = $result2->fetch_assoc()){
+            //Si el correo es correcto ahora validamos su contraseña
             if ($codificada == $row["password"]){ 
                 $rol=$row["role"];
                 // Guardar datos de sesión
@@ -45,7 +64,7 @@
   <div class="container">
     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
         <div class="from-group text-center">
-            <label for="usuario">Usuario:</label><br>
+            <label for="usuario">Usuario o Correo Eléctronico:</label><br>
             <input type="text" name="usuario" id="usuario" required><br><br>
 
             <label for="contrasena">Contraseña:</label><br>
