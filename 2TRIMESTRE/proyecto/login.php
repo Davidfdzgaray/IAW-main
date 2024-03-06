@@ -51,7 +51,7 @@
             }
         }
         else {
-            echo "<script>alert('Usuario incorrecto')</script>";
+            echo "<script>alert('Email o usuario incorrecto')</script>";
         }
         $conn->close();
     }
