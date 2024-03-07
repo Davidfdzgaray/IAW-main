@@ -53,6 +53,7 @@
               <th  scope="col"><a href="?ordenar=fecha_rev">Fecha revisión</a></th>
               <th  scope="col"><a href="?ordenar=fecha_sol">Fecha solución</a></th>
               <th  scope="col">Comentario</th>
+              <th  scope="col">Estado</th>
               <th  scope="col" colspan="3" class="text-center">Operaciones</th>
             </tr>  
           </thead>
@@ -95,34 +96,39 @@
                     if ($fecha_sol != '0000-00-00') echo $fecha_sol;
                     echo "</td>";
                     echo " <td >{$comentario} </td>";
+                    //ESTADO y COLOR
+                    if ($fecha_sol == '0000-00-00' && $fecha_rev == '0000-00-00') {
+                      $total++;
+                      $num_pend++;
+                      echo "<script>document.getElementById('$numero').style.backgroundColor = 'rgba(255,0,0,0.3)'</script>";
+                      $estado = 'Pendiente';
+                    }
+                    else if ($fecha_sol == '0000-00-00' && $fecha_rev != '0000-00-00') {
+                      $total++;
+                      $num_pend++;
+                      echo "<script>document.getElementById('$numero').style.backgroundColor = 'rgba(255,255,0,0.3)'</script>";
+                      $estado = 'Revisada';
+                    }
+                    else if ($fecha_sol != '0000-00-00' && $fecha_rev != '0000-00-00') {
+                      $total++;
+                      $num_res++;
+                      echo "<script>document.getElementById('$numero').style.backgroundColor = 'rgba(0,255,0,0.3)'</script>";
+                      $estado = 'Solucionada';
+                    }
+
+                    echo " <td >{$estado} </td>";
+                    //OPERACIONES
                     echo " <td class='text-center'> <a href='view.php?incidencia_id={$id}' class='btn btn-primary'> <i class='bi bi-eye'></i> Ver</a> </td>";
                     echo " <td class='text-center' >";
                     if ($fecha_sol == '0000-00-00' || $fecha_rev == '0000-00-00') {
                       if ($_SESSION["rol"] != 'profesor') {
                         echo "<a href='update.php?editar&incidencia_id={$id}' class='btn btn-secondary'><i class='bi bi-pencil'></i> Editar</a> </td>";
-                    
                       }
                     }
                     if ($_SESSION["rol"] != 'profesor' && $_SESSION["rol"] != 'direccion') {
                       echo " <td class='text-center'>  <a href='delete.php?eliminar={$id}' class='btn btn-danger'> <i class='bi bi-trash'></i> Eliminar</a> </td>";
                     }
                     echo " </tr> ";
-
-                    if ($fecha_sol == '0000-00-00' && $fecha_rev == '0000-00-00') {
-                      $total++;
-                      $num_pend++;
-                      echo "<script>document.getElementById('$numero').style.backgroundColor = 'rgba(255,0,0,0.3)'</script>";
-                    }
-                    else if ($fecha_sol == '0000-00-00' && $fecha_rev != '0000-00-00') {
-                      $total++;
-                      $num_pend++;
-                      echo "<script>document.getElementById('$numero').style.backgroundColor = 'rgba(255,255,0,0.3)'</script>";
-                    }
-                    else if ($fecha_sol != '0000-00-00' && $fecha_rev != '0000-00-00') {
-                      $total++;
-                      $num_res++;
-                      echo "<script>document.getElementById('$numero').style.backgroundColor = 'rgba(0,255,0,0.3)'</script>";
-                    }
                   }  
 
                   echo "<h2 class='text-center'>Nº total de incidencias: {$total}</h2>";

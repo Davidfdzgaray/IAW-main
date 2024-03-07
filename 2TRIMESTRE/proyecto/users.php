@@ -58,6 +58,7 @@
         <tr>
               <th scope="col">ID</th>
               <th  scope="col">Nombre de Usuario</th>
+              <th  scope="col">Correo Eléctronico</th>
               <th  scope="col">Contraseña</th>
               <th  scope="col">Rol</th>
               <th  scope="col">Nº Incidencias</th>
