@@ -51,6 +51,27 @@
   </div>
 </nav>
 
+<br>
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
+  Foto: <input type="file" name="foto"><br><br>
+  <input type="submit" value="Enviar" name='submit'>
+</form>
+<?php
+  if (isset($_POST['submit'])) {
+    $foto = htmlspecialchars($_POST['foto']);
+    $tmpfoto = $_FILES["foto"]["tmp_name"];
+  
+    if (is_uploaded_file($tmpfoto)) {
+      $rutadestino =  "media/";
+      move_uploaded_file($tmpfoto, $rutadestino); 
+      echo "Correcto";
+    } 
+    else {
+      echo "Error";
+    }
+  } 
+?>
+
 <h1 class="text-center">Usuarios del Sistema</h1>
   <div class="container">
     <table class="table table-striped table-bordered table-hover">
