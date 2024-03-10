@@ -5,24 +5,8 @@
     exit();
   }
 ?>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <ul class="navbar-nav me-auto mb-2">
-      <li class="nav-item">
-        <a class="nav-link active" style="color: black;" aria-current="page" href="home.php">Inicio</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" style="color: black;" aria-current="page" href="view2.php">Ver Incidencias</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" style="color: black;" aria-current="page" href="logout.php">Cerrar Sesión</a>
-      </li>
-    </ul>
-    <span class="navbar-text">
-      <img src="./media/3289576_user_icon.png" width="20" height="20"  alt=""> <?php echo $_SESSION["usuario"]; ?>
-    </span>
-  </div>
-</nav>
+
+<?php include_once "navbar.html"; ?>
 
 <h1 class="text-center">Detalles de incidencias</h1>
   <div class="container">

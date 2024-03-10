@@ -5,24 +5,34 @@
     exit();
   }
 ?>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <ul class="navbar-nav me-auto mb-2">
-      <li class="nav-item">
-        <a class="nav-link active" style="color: black;"  aria-current="page" href="home.php">Inicio</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" style="color: black;" aria-current="page" href="view2.php">Ver Incidencias</a>
-      </li>
-      <li class="nav-item" <?php if ($_SESSION['rol']!='administrador') echo 'hidden';?>>
-        <a class="nav-link active" style="color: black;" aria-current="page" href="users.php">Administrar Usuarios</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" style="color: black;" aria-current="page" href="logout.php">Cerrar Sesión</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+
+<?php include_once "navbar.html"; ?>
+
+<form method="post" enctype="multipart/form-data">
+  <h5>Cambiar Imagen de Perfil:</h5> 
+  <input type="file" name="imagen"><br><br>
+  <input type="submit" value="Enviar" name='submit'>
+</form>
+
+<?php
+if (isset($_POST['submit'])) {
+  $imagen = $_FILES["imagen"]["name"]; // Obtienes el nombre del archivo
+  $tmpimagen = $_FILES["imagen"]["tmp_name"];
+
+  if (is_uploaded_file($tmpimagen)) {
+    $rutadestino = "media/" . $imagen; // Especificas la ruta de destino
+    move_uploaded_file($tmpimagen, $rutadestino); 
+    echo "<script type='text/javascript'>alert('Imagen Subida Correctamente')</script>";
+
+    $username = $_SESSION["usuario"];
+    $queryw = "UPDATE usuarios SET imagen = '{$imagen}' WHERE username = '{$username}'"; // Escapas el valor de username
+    mysqli_query($conn, $queryw);
+  } 
+  else {
+    echo "<script type='text/javascript'>alert('Error al Subir la Imagen')</script>";
+  }
+} 
+?>
 
   <div class="container">
     <h1 class="text-center" >Gestión de incidencias (CRUD)</h1><br>
