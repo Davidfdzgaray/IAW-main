@@ -4,23 +4,6 @@
         header("Location: home.php");
         exit();
     }
-
-    $username =  $_SESSION['usuario'];
-    $query="SELECT * FROM usuarios WHERE username = '{$username}'"; 
-    $vista_usuarios= mysqli_query($conn,$query);            
-
-    while($row = mysqli_fetch_assoc($vista_usuarios))
-    {
-        $date = $row['last_date'];
-        $time = $row['last_time'];
-        $ip = $row['IP'];
-    }
-
-    if ($date == "" && $time  ==  "") {
-        date_default_timezone_set("Europe/Madrid");
-        $date = date("d") . "/" . date("m") . "/" . date("Y");
-        $time = date("H") . ":" . date("i");
-    }
 ?>
 <div class="container mt-5">
     <h1 class="text-center">Bienvenido Administrador!</h1>
