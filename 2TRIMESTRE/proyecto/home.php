@@ -8,10 +8,12 @@
 
 <?php include_once "navbar.html"; ?>
 
-<form method="post" enctype="multipart/form-data">
-  <h5>Cambiar Imagen de Perfil:</h5> 
-  <input type="file" name="imagen"><br><br>
-  <input type="submit" value="Enviar" name='submit'>
+<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post" enctype="multipart/form-data">
+  <div class="mb-3">
+    <h6>Quieres cambiar tu foto de perfil?</h6>
+    <input type="file" class="form-control" name="imagen">
+  </div>
+  <button type="submit" class="btn btn-primary" name="submit">Enviar</button>
 </form>
 
 <?php
@@ -22,7 +24,6 @@ if (isset($_POST['submit'])) {
   if (is_uploaded_file($tmpimagen)) {
     $rutadestino = "media/" . $imagen; // Especificas la ruta de destino
     move_uploaded_file($tmpimagen, $rutadestino); 
-    echo "<script type='text/javascript'>alert('Imagen Subida Correctamente')</script>";
 
     $username = $_SESSION["usuario"];
     $queryw = "UPDATE usuarios SET imagen = '{$imagen}' WHERE username = '{$username}'"; // Escapas el valor de username
