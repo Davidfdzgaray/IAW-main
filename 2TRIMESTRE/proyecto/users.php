@@ -35,24 +35,30 @@
 </nav>
 
 <br>
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
-  Foto: <input type="file" name="foto"><br><br>
+<form method="post" enctype="multipart/form-data">
+  Cambiar Imagen de Perfil: <input type="file" name="imagen"><br>
   <input type="submit" value="Enviar" name='submit'>
 </form>
+
 <?php
-  if (isset($_POST['submit'])) {
-    $foto = htmlspecialchars($_POST['foto']);
-    $tmpfoto = $_FILES["foto"]["tmp_name"];
-  
-    if (is_uploaded_file($tmpfoto)) {
-      $rutadestino =  "media/";
-      move_uploaded_file($tmpfoto, $rutadestino); 
-      echo "Correcto";
-    } 
-    else {
-      echo "Error";
-    }
+if (isset($_POST['submit'])) {
+  $imagen = $_FILES["imagen"]["name"]; // Obtienes el nombre del archivo
+  $tmpimagen = $_FILES["imagen"]["tmp_name"];
+
+  if (is_uploaded_file($tmpimagen)) {
+      $rutadestino = "media/" . $imagen; // Especificas la ruta de destino
+      move_uploaded_file($tmpimagen, $rutadestino); 
+      echo "<script type='text/javascript'>alert('Imagen Subida Correctamente')</script>";
+
+      $username = $_SESSION["usuario"];
+      $queryw = "UPDATE usuarios SET imagen = '{$imagen}' WHERE username = '{$username}'"; // Escapas el valor de username
+      mysqli_query($conn, $queryw);
+
   } 
+  else {
+      echo "<script type='text/javascript'>alert('Error al Subir la Imagen')</script>";
+  }
+} 
 ?>
 
 <h1 class="text-center">Usuarios del Sistema</h1>

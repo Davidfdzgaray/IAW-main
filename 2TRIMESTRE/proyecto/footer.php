@@ -5,10 +5,11 @@
         $query = "SELECT * FROM usuarios WHERE username = '$username'";
         $vista_usuario= mysqli_query($conn,$query);
 
-        //avatar
         while($row = mysqli_fetch_assoc($vista_usuario)) {
+            //avatar
             if (empty($row['imagen'])) {
-                $imagen='./media/3289576_user_icon.png';
+                //por defecto
+                $imagen='3289576_user_icon.png';
             } else {
                 $imagen=$row['imagen'];
             }
@@ -26,7 +27,7 @@
             }
         }
     ?>
-    <img src="<?php echo $imagen; ?>" width="20" height="20" alt=""> <?php echo $_SESSION["usuario"];?><br>
+    <img src="<?php echo './media/' . $imagen; ?>" width="20" height="20" alt=""> <?php echo $_SESSION["usuario"];?><br>
     <?php echo "Ultima Conexión: " . $last_access;?><br>
     <?php echo "Dirección de Ultima Conexión: " . $ip;?>
 </span>
