@@ -74,13 +74,7 @@
       </div>
       <div class="form-group">
         <label for="aula" >Aula</label>
-        <select name="aula" class="form-control" size="1" disabled>
-            <option value='Aula 1' <?php if ($aula=='Aula 1') echo 'selected'; ?>>Aula 1</option>
-            <option value='Aula 2' <?php if ($aula=='Aula 2') echo 'selected'; ?>>Aula 2</option>
-            <option value='Aula 3' <?php if ($aula=='Aula 3') echo 'selected'; ?>>Aula 3</option>
-            <option value='Aula 4' <?php if ($aula=='Aula 4') echo 'selected'; ?>>Aula 4</option>
-            <option value='Aula 5' <?php if ($aula=='Aula 5') echo 'selected'; ?>>Aula 5</option>
-        </select>
+        <input type="text" name="aula" class="form-control" value="<?php echo $aula  ?>" disabled>
       </div>
       <div class="form-group">
         <label for="descripcion" >Descripción</label>
