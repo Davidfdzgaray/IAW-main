@@ -80,7 +80,8 @@
             ?>
           </tr>  
           <div class="container text-center mt-5">
-            <a href='create_user.php' class='btn btn-outline-dark mb-2'> <i class="bi bi-person-plus"></i> Añadir Usuario</a><br>
+            <a href='crear_aula.php' class='btn btn-outline-dark mb-2'> <i class="bi bi-person-plus"></i>Añadir Aula</a>
+            <a href='create_user.php' class='btn btn-outline-dark mb-2'> <i class="bi bi-person-plus"></i>Añadir Usuario</a><br>
           <div>
         </tbody>
     </table>

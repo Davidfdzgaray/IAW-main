@@ -13,9 +13,6 @@
         <li class="nav-item">
           <a class="nav-link active" style="color: black;" aria-current="page" href="logout.php">Cerrar Sesión</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" style="color: black;" aria-current="page" href="logout.php">Cerrar Sesión</a>
-        </li>
         <li class="nav-item" style="text-align:center;margin-left:100px">
         <?php
             $username = $_SESSION["usuario"];
@@ -45,7 +42,7 @@
                 }
             }
         ?>
-        Está usted conectado como: <img src="<?php echo './media/' . $imagen; ?>" width="20" height="20" alt=""> <?php echo $_SESSION["usuario"] . ' con rol de ' . $_SESSION["rol"];?><br>
+        Está usted conectado como: <img src="<?php echo './media/' . $imagen; ?>" width="20" height="20" alt=""> <?php echo $_SESSION["usuario"] . ' con rol de "' . $_SESSION["rol"] . '"';?><br>
         <?php echo "Ultima Conexión: " . $last_access;?><br>
         <?php echo "Dirección de Ultima Conexión: " . $ip;?>
         </li>

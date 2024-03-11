@@ -28,16 +28,23 @@
     {
       $id = $row['id'];  
     }
-     
-    $sql= "INSERT INTO incidencias (id_usuario, planta, aula, descripcion, fecha_alta, fecha_rev, fecha_sol, comentario) VALUES ('$id','$planta','$aula','$descripcion','$fecha_alta','$fecha_rev','$fecha_sol','$comentario')";
 
-    if ($conn->query($sql) == TRUE) {
-      echo "<script type='text/javascript'>alert('¡Incidencia añadida con éxito!')</script>";
-      echo "<script>window.location='home.php';</script>";
-    } 
-    else {
-      echo "Algo ha ido mal añadiendo la incidencia.";
-    }      
+
+    $result = $conn->query("SELECT * FROM aulas WHERE nombre_aula = '$aula'");
+
+    if($row = $result->fetch_assoc()){
+      $sql= "INSERT INTO incidencias (id_usuario, planta, aula, descripcion, fecha_alta, fecha_rev, fecha_sol, comentario) VALUES ('$id','$planta','$aula','$descripcion','$fecha_alta','$fecha_rev','$fecha_sol','$comentario')";
+
+      if ($conn->query($sql) == TRUE) {
+        echo "<script type='text/javascript'>alert('¡Incidencia añadida con éxito!')</script>";
+        echo "<script>window.location='home.php';</script>";
+      } 
+      else {
+        echo "Algo ha ido mal añadiendo la incidencia.";
+      } 
+    } else {
+      echo "<script type='text/javascript'>alert('El aula especificada no existe')</script>";
+    }
   }
 ?>
 <h1 class="text-center">Añadir incidencia</h1>
@@ -52,14 +59,8 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="aula" class="form-label">Aula</label>
-        <select name="aula" class="form-control" size="1">
-            <option value='Aula 1'>Aula 1</option>
-            <option value='Aula 2'>Aula 2</option>
-            <option value='Aula 3'>Aula 3</option>
-            <option value='Aula 4'>Aula 4</option>
-            <option value='Aula 5'>Aula 5</option>
-        </select>
+        <label for="aula" class="form-label">Aula*</label>
+        <input type="text" name="aula" class="form-control">
       </div>
       <div class="form-group">
         <label for="descripcion" class="form-label">Descripcion*</label>
