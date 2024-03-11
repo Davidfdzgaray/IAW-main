@@ -13,7 +13,7 @@
         <li class="nav-item">
           <a class="nav-link active" style="color: black;" aria-current="page" href="logout.php">Cerrar Sesión</a>
         </li>
-        <li class="nav-item" style="text-align:center;margin-left:100px">
+        <li class="nav-item" style="text-align:center;margin-left:200px">
         <?php
             $username = $_SESSION["usuario"];
             $query = "SELECT * FROM usuarios WHERE username = '$username'";
