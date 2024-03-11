@@ -1,9 +1,10 @@
 <?php include "header.php" ?>
 <?php 
     date_default_timezone_set("Europe/Madrid");
-    $date = date("d") . "/" . date("m") . "/" . date("Y");
+    setlocale(LC_TIME, 'es_ES.UTF-8');
+    $date = strftime("%d de %B de %Y");
     $time = date("H") . ":" . date("i");
-    $last_access = $date . " " . $time;
+    $last_access = $date . " a las " . $time;
     $ip = $_SERVER['REMOTE_ADDR']; 
     $username =  $_SESSION['usuario'];
 

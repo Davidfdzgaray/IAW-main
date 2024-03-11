@@ -6,8 +6,8 @@
   }
 ?>
 
-<?php include_once "navbar.html"; ?>
 
+<?php include_once "navbar.php"; ?>
 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post" enctype="multipart/form-data">
   <div class="mb-3">
     <h6>Quieres cambiar tu foto de perfil?</h6>

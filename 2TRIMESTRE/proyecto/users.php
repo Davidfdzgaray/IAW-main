@@ -16,7 +16,7 @@
     }
 </script>
 
-<?php include_once "navbar.html"; ?>
+<?php include_once "navbar.php"; ?>
 
 <h1 class="text-center">Usuarios del Sistema</h1>
   <div class="container">
@@ -24,8 +24,8 @@
       <thead class="table-dark">
         <tr>
               <th scope="col">ID</th>
-              <th  scope="col">Nombre de Usuario</th>
-              <th  scope="col">Correo Eléctronico</th>
+              <th  scope="col"><a href="?ordenar=username">Nombre de Usuario</a></th>
+              <th  scope="col"><a href="?ordenar=email">Correo Eléctronico</a></th>
               <th  scope="col">Contraseña</th>
               <th  scope="col">Rol</th>
               <th  scope="col">Nº Incidencias</th>
@@ -35,7 +35,14 @@
         <tbody>
           <tr>    
             <?php
-              $query="SELECT * FROM usuarios";  
+              //por defecto por antiguedad
+              $orden = 'id';
+
+              if(isset($_GET['ordenar'])) {
+                $orden = $_GET['ordenar'];
+              }
+
+              $query="SELECT * FROM usuarios ORDER BY {$orden}";  
               $vista_usuarios= mysqli_query($conn,$query);            
 
               while($row = mysqli_fetch_assoc($vista_usuarios))

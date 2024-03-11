@@ -12,7 +12,7 @@
   }
 ?>
 
-<?php include_once "navbar.html"; ?>
+<?php include_once "navbar.php"; ?>
 
 <?php
    if(isset($_GET['incidencia_id']))

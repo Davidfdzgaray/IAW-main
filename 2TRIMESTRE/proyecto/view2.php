@@ -6,7 +6,7 @@
   }
 ?>
 
-<?php include_once "navbar.html"; ?>
+<?php include_once "navbar.php"; ?>
 
 <h1 class="text-center">Detalles de incidencias</h1>
   <div class="container">

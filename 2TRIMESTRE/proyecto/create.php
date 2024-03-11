@@ -8,7 +8,7 @@
   $fecha_hoy = date("Y-m-d");
 ?>
 
-<?php include_once "navbar.html"; ?>
+<?php include_once "navbar.php"; ?>
 
 <?php 
   if(isset($_POST['crear'])) {

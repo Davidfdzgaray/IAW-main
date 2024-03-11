@@ -7,7 +7,7 @@
   }
 ?>
 
-<?php include_once "navbar.html"; ?>
+<?php include_once "navbar.php"; ?>
 
 <h1 class="text-center">Detalles de incidencia <?php echo 'Nº '. $_GET['incidencia_id']?></h1>
   <div class="container">
